@@ -1,0 +1,6 @@
+id,name,icon,path,execution
+pesquisador,Pedro Pesquisa,🔍,./agents/pesquisador.agent.md,subagent
+redator,Carlos Carrossel,✍️,./agents/redator.agent.md,inline
+designer,Diana Design,🎨,./agents/designer.agent.md,inline
+revisora,Renata Revisão,✅,./agents/revisora.agent.md,subagent
+publicador,Paulo Publisher,📱,./agents/publicador.agent.md,inline

@@ -1,0 +1,24 @@
+name: "Instagram Carousel — CEDOA"
+code: instagram-carousel
+description: "Produção de carrosséis educativos de oftalmologia para Instagram. Conteúdo que educa pacientes sobre saúde ocular com publicação direta via Graph API."
+performance_mode: alta-performance
+
+company: "_opensquad/_memory/company.md"
+preferences: "_opensquad/_memory/preferences.md"
+
+skills:
+  - web_search
+  - web_fetch
+  - image-creator
+  - instagram-publisher
+
+data:
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/anti-patterns.md
+  - pipeline/data/tone-of-voice.md
+
+formats:
+  - instagram-feed

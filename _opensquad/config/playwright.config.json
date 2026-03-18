@@ -5,7 +5,9 @@
     "userDataDir": "_opensquad/_browser_profile",
     "launchOptions": {
       "headless": true,
-      "channel": "chrome"
+      "channel": "chrome",
+      "chromiumSandbox": false,
+      "args": ["--no-sandbox", "--disable-setuid-sandbox"]
     }
   }
 }
