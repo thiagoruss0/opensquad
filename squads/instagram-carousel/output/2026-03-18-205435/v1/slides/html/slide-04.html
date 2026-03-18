@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1440px;
+    font-family: 'Inter', sans-serif;
+    background: #F0F7F8;
+    color: #1A2B3C;
+    display: flex; flex-direction: column;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .accent-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 8px;
+    background: linear-gradient(90deg, #0D5C63, #FF6B35);
+  }
+  .fact-number {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 80px; height: 80px;
+    background: #0D5C63;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  .headline {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #0A3D5C;
+    margin-bottom: 48px;
+    max-width: 900px;
+  }
+  .highlight { color: #FF6B35; }
+  .body-text {
+    font-size: 33px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #2D4356;
+    max-width: 900px;
+  }
+  .diagram {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  .vision-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 40px 36px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .vision-card.affected {
+    border: 3px solid #FF6B35;
+  }
+  .vision-card.preserved {
+    border: 3px solid #0D5C63;
+  }
+  .vision-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+  }
+  .vision-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .vision-card.affected .vision-title { color: #FF6B35; }
+  .vision-card.preserved .vision-title { color: #0D5C63; }
+  .vision-desc {
+    font-size: 26px;
+    color: #5A6B7B;
+    line-height: 1.4;
+  }
+  .source {
+    font-size: 20px;
+    color: #8A9BAB;
+    margin-top: 32px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 60px; right: 80px;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(13,92,99,0.4);
+  }
+  .page {
+    position: absolute;
+    bottom: 60px; left: 80px;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(13,92,99,0.35);
+  }
+</style>
+</head>
+<body>
+  <div class="accent-bar"></div>
+  <div class="fact-number">3</div>
+  <div class="headline">Ela <span class="highlight">não causa</span> cegueira total</div>
+  <div class="body-text">
+    A DMRI seca afeta a visão central — aquela que você usa para ler, reconhecer rostos e dirigir. Mas a visão periférica (lateral) é preservada.
+  </div>
+  <div class="diagram">
+    <div class="vision-card affected">
+      <div class="vision-icon">&#9673;</div>
+      <div class="vision-title">Visão Central</div>
+      <div class="vision-desc">Afetada — perde nitidez no centro do campo visual</div>
+    </div>
+    <div class="vision-card preserved">
+      <div class="vision-icon">&#9711;</div>
+      <div class="vision-title">Visão Periférica</div>
+      <div class="vision-desc">Preservada — a pessoa não fica "no escuro"</div>
+    </div>
+  </div>
+  <div class="source">Fonte: AAO PPP 2024 · Cleveland Clinic</div>
+  <div class="page">4/9</div>
+  <div class="footer">@drthiagorusso</div>
+</body>
+</html>

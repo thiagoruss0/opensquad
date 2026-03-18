@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1440px;
+    font-family: 'Inter', sans-serif;
+    background: #EDF4F0;
+    color: #1A2B3C;
+    display: flex; flex-direction: column;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .accent-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 8px;
+    background: linear-gradient(90deg, #0D5C63, #FF6B35);
+  }
+  .fact-number {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 80px; height: 80px;
+    background: #0D5C63;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  .headline {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #0A3D5C;
+    margin-bottom: 48px;
+    max-width: 900px;
+  }
+  .highlight { color: #FF6B35; }
+  .body-text {
+    font-size: 33px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #2D4356;
+    max-width: 900px;
+    flex-grow: 1;
+  }
+  .callout {
+    background: #FFFFFF;
+    border-left: 6px solid #FF6B35;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #0A3D5C;
+    line-height: 1.5;
+  }
+  .source {
+    font-size: 20px;
+    color: #8A9BAB;
+    margin-top: 32px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 60px; right: 80px;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(13,92,99,0.4);
+  }
+  .page {
+    position: absolute;
+    bottom: 60px; left: 80px;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(13,92,99,0.35);
+  }
+</style>
+</head>
+<body>
+  <div class="accent-bar"></div>
+  <div class="fact-number">2</div>
+  <div class="headline">Não tem cura, mas tem como <span class="highlight">retardar</span></div>
+  <div class="body-text">
+    Até hoje, nenhum tratamento reverte o dano da DMRI seca. Mas a <strong>suplementação AREDS</strong> — vitaminas C, E, luteína, zeaxantina e zinco — é comprovada em retardar a progressão nos estágios intermediários e avançados.
+  </div>
+  <div class="callout">
+    Não é qualquer vitamina de farmácia. É uma fórmula estudada por mais de 20 anos.
+  </div>
+  <div class="source">Fonte: AAO PPP 2024 · BrightFocus</div>
+  <div class="page">3/9</div>
+  <div class="footer">@drthiagorusso</div>
+</body>
+</html>

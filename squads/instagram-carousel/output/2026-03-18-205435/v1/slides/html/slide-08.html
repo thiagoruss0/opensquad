@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1440px;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(170deg, #0A3D5C 0%, #0D5C63 60%, #147A7A 100%);
+    color: #FFFFFF;
+    display: flex; flex-direction: column;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .accent-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 8px;
+    background: linear-gradient(90deg, #FF6B35, #FFB347);
+  }
+  .headline {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  .highlight { color: #FF6B35; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    flex-grow: 1;
+    align-content: center;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 24px;
+    padding: 44px 36px;
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 64px;
+    font-weight: 900;
+    color: #FF6B35;
+    margin-bottom: 12px;
+  }
+  .stat-desc {
+    font-size: 26px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+  }
+  .bottom-text {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    margin-top: 48px;
+  }
+  .source {
+    font-size: 20px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 32px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 60px; right: 80px;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+  }
+  .page {
+    position: absolute;
+    bottom: 60px; left: 80px;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.35);
+  }
+</style>
+</head>
+<body>
+  <div class="accent-bar"></div>
+  <div class="headline">DMRI seca <span class="highlight">em números</span></div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">3M</div>
+      <div class="stat-desc">brasileiros<br>com DMRI</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">100mil</div>
+      <div class="stat-desc">novos casos<br>por ano</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">30%</div>
+      <div class="stat-desc">dos maiores de<br>70 anos afetados</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">900mil</div>
+      <div class="stat-desc">projeção<br>para 2030</div>
+    </div>
+  </div>
+  <div class="bottom-text">
+    Silenciosa, progressiva e muito mais<br>comum do que se imagina.
+  </div>
+  <div class="source">Fonte: SBRV · COI · CBO</div>
+  <div class="page">8/9</div>
+  <div class="footer">@drthiagorusso</div>
+</body>
+</html>

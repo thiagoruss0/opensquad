@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1440px;
+    font-family: 'Inter', sans-serif;
+    background: #EDF4F0;
+    color: #1A2B3C;
+    display: flex; flex-direction: column;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .accent-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 8px;
+    background: linear-gradient(90deg, #0D5C63, #FF6B35);
+  }
+  .fact-number {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 80px; height: 80px;
+    background: #0D5C63;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  .headline {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #0A3D5C;
+    margin-bottom: 48px;
+    max-width: 900px;
+  }
+  .highlight { color: #FF6B35; }
+  .body-text {
+    font-size: 33px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #2D4356;
+    max-width: 900px;
+    flex-grow: 1;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #0D5C63, #147A7A);
+    color: #FFFFFF;
+    border-radius: 16px;
+    padding: 28px 36px;
+    margin-top: 40px;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .badge-icon {
+    font-size: 40px;
+  }
+  .source {
+    font-size: 20px;
+    color: #8A9BAB;
+    margin-top: 32px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 60px; right: 80px;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(13,92,99,0.4);
+  }
+  .page {
+    position: absolute;
+    bottom: 60px; left: 80px;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(13,92,99,0.35);
+  }
+</style>
+</head>
+<body>
+  <div class="accent-bar"></div>
+  <div class="fact-number">4</div>
+  <div class="headline">Existe uma nova opção <span class="highlight">sem agulha</span></div>
+  <div class="body-text">
+    Em 2024, a FDA aprovou a <strong>fotobiomodulação (PBM)</strong> como primeira terapia não invasiva para DMRI seca. É um tratamento com luz, sem injeção e sem dor.<br><br>
+    Ainda não substitui a suplementação AREDS, mas oferece uma alternativa para quem precisa de mais do que vitaminas e tem receio de procedimentos invasivos.
+  </div>
+  <div class="badge">
+    <span class="badge-icon">&#9728;</span>
+    <span>Tratamento com luz — sem injeção, sem dor</span>
+  </div>
+  <div class="source">Fonte: FDA · AAO · BrightFocus</div>
+  <div class="page">5/9</div>
+  <div class="footer">@drthiagorusso</div>
+</body>
+</html>

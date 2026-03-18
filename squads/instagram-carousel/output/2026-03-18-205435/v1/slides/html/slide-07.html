@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1440px;
+    font-family: 'Inter', sans-serif;
+    background: #EDF4F0;
+    color: #1A2B3C;
+    display: flex; flex-direction: column;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .accent-bar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 8px;
+    background: linear-gradient(90deg, #0D5C63, #FF6B35);
+  }
+  .icon-header {
+    font-size: 64px;
+    margin-top: 40px;
+    margin-bottom: 32px;
+  }
+  .headline {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #0A3D5C;
+    margin-bottom: 56px;
+    max-width: 900px;
+  }
+  .highlight { color: #FF6B35; }
+  .action-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex-grow: 1;
+  }
+  .action-item {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+  .action-number {
+    display: flex;
+    align-items: center; justify-content: center;
+    min-width: 56px; height: 56px;
+    background: #0D5C63;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: 800;
+  }
+  .action-text {
+    font-size: 30px;
+    line-height: 1.5;
+    color: #2D4356;
+  }
+  .action-text strong {
+    color: #0A3D5C;
+  }
+  .source {
+    font-size: 20px;
+    color: #8A9BAB;
+    margin-top: 32px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 60px; right: 80px;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(13,92,99,0.4);
+  }
+  .page {
+    position: absolute;
+    bottom: 60px; left: 80px;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(13,92,99,0.35);
+  }
+</style>
+</head>
+<body>
+  <div class="accent-bar"></div>
+  <div class="headline" style="margin-top:60px;">O que você pode fazer <span class="highlight">hoje</span></div>
+  <div class="action-list">
+    <div class="action-item">
+      <div class="action-number">1</div>
+      <div class="action-text"><strong>Pare de fumar</strong> — o tabagismo é o fator de risco modificável mais forte para DMRI</div>
+    </div>
+    <div class="action-item">
+      <div class="action-number">2</div>
+      <div class="action-text"><strong>Alimente-se bem</strong> — espinafre, couve e peixes ricos em ômega-3 ajudam a proteger a retina</div>
+    </div>
+    <div class="action-item">
+      <div class="action-number">3</div>
+      <div class="action-text"><strong>Exame regular</strong> — se tem mais de 60 anos, agende um exame oftalmológico completo a cada 1-2 anos</div>
+    </div>
+  </div>
+  <div class="callout" style="background:#0D5C63;color:#FFF;border-radius:16px;padding:28px 36px;font-size:30px;font-weight:700;text-align:center;margin-top:40px;">
+    Prevenção começa antes dos sintomas.
+  </div>
+  <div class="source">Fonte: AAO PPP 2024 · Prevent Blindness · Medscape</div>
+  <div class="page">7/9</div>
+  <div class="footer">@drthiagorusso</div>
+</body>
+</html>

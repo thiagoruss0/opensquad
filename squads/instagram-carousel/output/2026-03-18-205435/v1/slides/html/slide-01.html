@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1440px;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(160deg, #0A3D5C 0%, #0D5C63 40%, #147A7A 100%);
+    color: #FFFFFF;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.06;
+    background: #FFFFFF;
+  }
+  .bg-circle-1 { width: 600px; height: 600px; top: -150px; right: -200px; }
+  .bg-circle-2 { width: 400px; height: 400px; bottom: -100px; left: -150px; }
+  .tag {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 40px;
+    padding: 14px 36px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    color: rgba(255,255,255,0.9);
+  }
+  .headline {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 40px;
+    max-width: 900px;
+  }
+  .highlight {
+    color: #FF6B35;
+  }
+  .subtitle {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+    max-width: 780px;
+    margin-bottom: 60px;
+  }
+  .swipe {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 26px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    margin-top: 20px;
+  }
+  .swipe-arrow {
+    font-size: 32px;
+    animation: none;
+  }
+  .footer {
+    position: absolute;
+    bottom: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+  }
+  .footer-dot {
+    width: 6px; height: 6px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+  }
+</style>
+</head>
+<body>
+  <div class="bg-circle bg-circle-1"></div>
+  <div class="bg-circle bg-circle-2"></div>
+  <div class="tag">Oftalmologia</div>
+  <div class="headline">O que é DMRI seca?<br><span class="highlight">90% não sabem</span></div>
+  <div class="subtitle">5 fatos que mudam a forma como você cuida dos seus olhos</div>
+  <div class="swipe">
+    Deslize para descobrir <span class="swipe-arrow">→</span>
+  </div>
+  <div class="footer">
+    <span>@drthiagorusso</span>
+    <span class="footer-dot"></span>
+    <span>CEDOA</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{
+  "carousel_id": "dmri-seca-5fatos-20260318",
+  "created_at": "2026-03-18T21:45:00-04:00",
+  "total_slides": 9,
+  "dimensions": { "width": 1080, "height": 1440 },
+  "format": "PNG",
+  "design_system": {
+    "primary_color": "#0D5C63",
+    "secondary_color": "#0A3D5C",
+    "background_color": "#F0F7F8",
+    "accent_color": "#FF6B35",
+    "font_family": "Inter, sans-serif",
+    "headline_size": "56px",
+    "body_size": "33px"
+  },
+  "slides": [
+    {
+      "slide_number": 1,
+      "path": "squads/instagram-carousel/output/2026-03-18-205435/v1/slides/rendered/slide-01.png",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 463418,
+      "type": "cover"
+    },
+    {
+      "slide_number": 2,
+      "path": "squads/instagram-carousel/output/2026-03-18-205435/v1/slides/rendered/slide-02.png",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 122067,
+      "type": "content"
+    },
+    {
+      "slide_number": 3,
+      "path": "squads/instagram-carousel/output/2026-03-18-205435/v1/slides/rendered/slide-03.png",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 110457,
+      "type": "content"
+    },
+    {
+      "slide_number": 4,
+      "path": "squads/instagram-carousel/output/2026-03-18-205435/v1/slides/rendered/slide-04.png",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 103200,
+      "type": "content"
+    },
+    {
+      "slide_number": 5,
+      "path": "squads/instagram-carousel/output/2026-03-18-205435/v1/slides/rendered/slide-05.png",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 155684,
+      "type": "content"
+    },
+    {
+      "slide_number": 6,
+      "path": "squads/instagram-carousel/output/2026-03-18-205435/v1/slides/rendered/slide-06.png",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 104144,
+      "type": "content"
+    },
+    {
+      "slide_number": 7,
+      "path": "squads/instagram-carousel/output/2026-03-18-205435/v1/slides/rendered/slide-07.png",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 119796,
+      "type": "content"
+    },
+    {
+      "slide_number": 8,
+      "path": "squads/instagram-carousel/output/2026-03-18-205435/v1/slides/rendered/slide-08.png",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 386618,
+      "type": "content"
+    },
+    {
+      "slide_number": 9,
+      "path": "squads/instagram-carousel/output/2026-03-18-205435/v1/slides/rendered/slide-09.png",
+      "width": 1080,
+      "height": 1440,
+      "size_bytes": 482619,
+      "type": "cta"
+    }
+  ]
+}
