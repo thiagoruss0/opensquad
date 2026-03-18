@@ -1,7 +1,7 @@
 {
   "squad": "instagram-carousel",
   "status": "running",
-  "step": { "current": 3, "total": 11, "label": "step-03-news-selection" },
+  "step": { "current": 5, "total": 11, "label": "step-05-angle-selection" },
   "agents": [
     {
       "id": "pesquisador",
@@ -15,7 +15,7 @@
       "id": "redator",
       "name": "Carlos Carrossel",
       "icon": "✍️",
-      "status": "idle",
+      "status": "working",
       "deliverTo": null,
       "desk": { "col": 2, "row": 1 }
     },
@@ -44,12 +44,7 @@
       "desk": { "col": 2, "row": 2 }
     }
   ],
-  "handoff": {
-    "from": "pesquisador",
-    "to": "redator",
-    "message": "Pesquisa sobre DMRI Seca concluída com 21 fontes e 5 achados principais. Brief pronto para criação de ângulos.",
-    "completedAt": "2026-03-18T20:58:00-04:00"
-  },
+  "handoff": null,
   "startedAt": "2026-03-18T20:54:35-04:00",
-  "updatedAt": "2026-03-18T20:58:10-04:00"
+  "updatedAt": "2026-03-18T21:05:00-04:00"
 }
