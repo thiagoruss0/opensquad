@@ -1,13 +1,13 @@
 {
   "squad": "instagram-carousel",
   "status": "running",
-  "step": { "current": 2, "total": 11, "label": "step-02-pesquisa" },
+  "step": { "current": 3, "total": 11, "label": "step-03-news-selection" },
   "agents": [
     {
       "id": "pesquisador",
       "name": "Pedro Pesquisa",
       "icon": "🔍",
-      "status": "working",
+      "status": "done",
       "deliverTo": null,
       "desk": { "col": 1, "row": 1 }
     },
@@ -44,7 +44,12 @@
       "desk": { "col": 2, "row": 2 }
     }
   ],
-  "handoff": null,
+  "handoff": {
+    "from": "pesquisador",
+    "to": "redator",
+    "message": "Pesquisa sobre DMRI Seca concluída com 21 fontes e 5 achados principais. Brief pronto para criação de ângulos.",
+    "completedAt": "2026-03-18T20:58:00-04:00"
+  },
   "startedAt": "2026-03-18T20:54:35-04:00",
-  "updatedAt": "2026-03-18T20:55:10-04:00"
+  "updatedAt": "2026-03-18T20:58:10-04:00"
 }
