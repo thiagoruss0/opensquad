@@ -8,9 +8,9 @@ model_tier: powerful
 
 ## Context Loading
 
-Load the following files before starting:
+Load the following files before executing:
 
-- `squads/instagram-carousel/output/research-focus.md` — User's selected topic and time range
+- `squads/instagram-carousel/output/research-focus.md` — User's chosen topic and time range
 - `squads/instagram-carousel/pipeline/data/research-brief.md` — Domain research template for reference
 - `_opensquad/_memory/company.md` — Company context (CEDOA, Dr. Thiago Russo)
 
@@ -18,111 +18,120 @@ Load the following files before starting:
 
 ### Process
 
-1. **Parse user input**: Extract the research topic and time range from `research-focus.md`.
-2. **Execute web search**: Use `web_search` to find 5-10 relevant sources about the topic. Search in both Portuguese and English for broader coverage. Prioritize:
-   - Peer-reviewed studies (PubMed, SciELO, Cochrane)
-   - Medical society guidelines (CBO, AAO, WHO)
-   - Recent news articles from reputable health outlets
-   - Brazilian ophthalmology sources when available
-3. **Cross-reference claims**: Verify key claims appear in at least 2 independent sources. Flag any claim with a single source as "needs verification."
-4. **Identify trending angles**: Look for what makes this topic timely or relevant — new studies, seasonal relevance, common misconceptions, patient concerns.
-5. **Compile the research brief**: Organize all findings into the structured output format below.
-6. **Assess gaps**: Note areas where information is scarce or conflicting, suggesting additional research if needed.
+1. **Parse the user's research focus** from `research-focus.md`. Extract the topic and the time range selection.
+2. **Conduct web research** using `web_search` on the specified topic within the chosen time range.
+   - Search in both Portuguese and English for broader coverage.
+   - Use queries like: "[topic] ophthalmology research 2026", "[topic] oftalmologia estudo recente", "[topic] patient education".
+3. **Find 5-10 relevant sources.** Prioritize:
+   - Peer-reviewed studies and medical journals (AAO, CBO, Lancet Ophthalmology)
+   - Reputable health news outlets
+   - Guidelines from ophthalmology societies (CBO, AAO, WHO)
+   - Patient-facing educational content from established clinics
+4. **Cross-reference claims** — no single-source facts. Every key finding must appear in at least 2 sources.
+5. **Identify trending angles** — what is new, surprising, or underreported about this topic?
+6. **Note gaps** — what important aspects lack sufficient sourcing?
+7. **Produce the structured research brief** following the output format below.
 
 ## Output Format
 
 ```markdown
 # Research Brief: [Topic]
 
-## Metadata
-- **Tema**: [topic]
-- **Período**: [time range]
-- **Data da pesquisa**: [date]
-- **Total de fontes**: [count]
+**Data da pesquisa:** [date]
+**Periodo:** [time range selected]
+**Total de fontes:** [N]
 
-## Key Findings
-1. [Finding with source reference]
-2. [Finding with source reference]
+## KEY FINDINGS
+
+1. [Finding with citation]
+2. [Finding with citation]
 ...
 
-## Trending Angles
-1. [Angle — why it's relevant now]
-2. [Angle — why it's relevant now]
-...
+## TRENDING ANGLES
 
-## Sources Table
+1. [Angle + why it's trending]
+2. [Angle + why it's trending]
+3. [Angle + why it's trending]
+
+## SOURCES
+
 | # | Title | Source | Type | Date | Relevance |
 |---|-------|--------|------|------|-----------|
 | 1 | ...   | ...    | ...  | ...  | ...       |
 
-## Recommendations
-- [Which angles are strongest for Instagram carousel format]
-- [Which findings have the most patient relevance]
-- [Suggested narrative direction]
+## RECOMMENDATIONS
 
-## Gaps
-- [Areas needing more research]
-- [Conflicting information found]
+- Best angle for Instagram carousel: [recommendation]
+- Audience resonance: [why this matters to patients]
+- Content gap opportunity: [what competitors aren't covering]
+
+## GAPS
+
+- [Topic area with insufficient evidence]
+- [Claims that could not be cross-referenced]
 ```
 
 ## Output Example
 
 ```markdown
-# Research Brief: Glaucoma Prevenção
+# Research Brief: Glaucoma e Prevencao
 
-## Metadata
-- **Tema**: glaucoma prevenção e diagnóstico precoce
-- **Período**: Sem restrição (evergreen)
-- **Data da pesquisa**: 2026-03-18
-- **Total de fontes**: 8
+**Data da pesquisa:** 2026-03-18
+**Periodo:** Ultimo mes
+**Total de fontes:** 8
 
-## Key Findings
-1. Glaucoma é a principal causa de cegueira irreversível no mundo, afetando ~80 milhões de pessoas (WHO, 2023).
-2. Até 50% dos pacientes com glaucoma não sabem que têm a doença — diagnóstico frequentemente ocorre em estágios avançados (CBO, 2024).
-3. Exame de tonometria anual a partir dos 40 anos reduz risco de perda visual avançada em 60% (AAO Guidelines, 2024).
-4. Histórico familiar aumenta o risco em 4-9x — triagem familiar é subutilizada no Brasil (SciELO, Araújo et al., 2023).
-5. Novas terapias com colírios sem conservantes mostram melhor adesão ao tratamento (Cochrane Review, 2024).
-6. Pressão intraocular não é o único fator — glaucoma de pressão normal representa 30% dos casos (JAMA Ophthalmology, 2023).
+## KEY FINDINGS
 
-## Trending Angles
-1. "Cegueira silenciosa" — o apelo emocional do diagnóstico tardio conecta com público leigo
-2. Mitos sobre glaucoma — "só afeta idosos" é o mito mais comum nas redes sociais
-3. Checklist de prevenção — conteúdo prático gera saves e compartilhamentos
+1. Glaucoma afeta 3.4% dos brasileiros acima de 40 anos, mas 50% dos casos nao sao diagnosticados (CBO 2025; WHO Global Eye Health Report 2026).
+2. A pressao intraocular elevada e o principal fator de risco modificavel, mas glaucoma de pressao normal representa 30% dos casos no Brasil (Estudo EPIC-Brazil 2025; AAO Guidelines 2026).
+3. Exame oftalmologico anual a partir dos 40 anos reduz o risco de perda visual irreversivel em 60% (Lancet Ophthalmology Meta-analysis 2025; CBO Diretrizes 2026).
+4. Novos colirios com conservantes reduzidos mostram adesao 40% maior ao tratamento (JAMA Ophthalmology 2026; British Journal of Ophthalmology 2025).
+5. Historico familiar aumenta o risco em 4-9x, mas apenas 15% dos brasileiros com historico fazem rastreamento regular (IBGE Saude 2025; CBO 2026).
 
-## Sources Table
+## TRENDING ANGLES
+
+1. "Glaucoma silencioso" — campanha da CBO 2026 reforca que a doenca nao doi e nao avisa, gerando engajamento em redes sociais.
+2. Tecnologia OCT e diagnostico precoce — novos equipamentos detectam danos 5 anos antes dos exames tradicionais.
+3. Miopia como fator de risco — estudos recentes ligam alta miopia a maior risco de glaucoma, relevante para publico jovem.
+
+## SOURCES
+
 | # | Title | Source | Type | Date | Relevance |
 |---|-------|--------|------|------|-----------|
-| 1 | Global prevalence of glaucoma | WHO Report | Relatório | 2023 | Alta |
-| 2 | Diretrizes de rastreamento | CBO | Guideline | 2024 | Alta |
-| 3 | Primary Open-Angle Glaucoma Screening | AAO | Guideline | 2024 | Alta |
-| 4 | Triagem familiar para glaucoma no Brasil | SciELO | Estudo | 2023 | Alta |
-| 5 | Preservative-free eye drops adherence | Cochrane | Revisão | 2024 | Média |
-| 6 | Normal-tension glaucoma prevalence | JAMA Ophthalmol | Estudo | 2023 | Média |
-| 7 | Glaucoma awareness in Latin America | Rev Bras Oftalmol | Estudo | 2024 | Alta |
-| 8 | AI-assisted glaucoma detection | Nature Medicine | Estudo | 2024 | Média |
+| 1 | Global Eye Health Report 2026 | WHO | Relatorio | 2026-01 | Alta |
+| 2 | Diretrizes de Glaucoma 2026 | CBO | Diretriz | 2026-02 | Alta |
+| 3 | Primary Open-Angle Glaucoma Guidelines | AAO | Diretriz | 2026-01 | Alta |
+| 4 | Glaucoma prevalence in Brazil: EPIC study | Lancet Ophthalmology | Estudo | 2025-11 | Alta |
+| 5 | Preservative-free drops and adherence | JAMA Ophthalmology | Estudo | 2026-01 | Media |
+| 6 | Family history and screening gaps | CBO Congresso | Apresentacao | 2026-02 | Alta |
+| 7 | OCT advances in glaucoma detection | British J Ophthalmology | Estudo | 2025-09 | Media |
+| 8 | Pesquisa Nacional de Saude Ocular | IBGE | Pesquisa | 2025-12 | Media |
 
-## Recommendations
-- Ângulo "cegueira silenciosa" é o mais forte para gerar engajamento emocional
-- Dados brasileiros (CBO, SciELO) dão credibilidade local
-- Formato listicle ou mito vs realidade funcionam bem para este tema
+## RECOMMENDATIONS
 
-## Gaps
-- Dados específicos de Manaus/Amazonas sobre prevalência de glaucoma são escassos
-- Poucas fontes sobre custo de tratamento no SUS para contextualização
+- Best angle for Instagram carousel: "Glaucoma silencioso" — alto impacto emocional, dados fortes, campanha CBO ativa
+- Audience resonance: Pacientes 40+ temem perder a visao; mensagem preventiva gera compartilhamentos
+- Content gap opportunity: Poucos perfis medicos abordam glaucoma de pressao normal — oportunidade de diferenciacao
+
+## GAPS
+
+- Dados especificos sobre prevalencia na regiao Norte/Amazonia sao escassos
+- Eficacia comparativa entre colirios genericos vs. marca nao tem consenso recente
 ```
 
 ## Veto Conditions
 
-- **REJEITAR** se houver achados sem fonte identificada
-- **REJEITAR** se opiniões forem apresentadas como fatos científicos
-- **REJEITAR** se houver menos de 5 fontes no total
-- **REJEITAR** se nenhuma fonte for de órgão médico reconhecido (CBO, AAO, WHO, etc.)
-- **REJEITAR** se o brief não incluir pelo menos 3 trending angles
+- **REJECT** if any finding is presented without at least one source citation
+- **REJECT** if opinions or speculation are presented as established facts
+- **REJECT** if fewer than 5 distinct sources are cited
+- **REJECT** if sources are outdated (>3 years) without justification
+- **REJECT** if the brief lacks the GAPS section (intellectual honesty is required)
 
 ## Quality Criteria
 
-- Todas as afirmações possuem referência rastreável
-- Fontes incluem pelo menos 2 guidelines de sociedades médicas
-- Trending angles são relevantes para formato Instagram
-- Brief é completo o suficiente para um redator criar conteúdo sem pesquisa adicional
-- Recomendações são específicas e acionáveis, não genéricas
+- All findings are cross-referenced across at least 2 sources
+- Sources include a mix of types (studies, guidelines, reports)
+- Trending angles are genuinely current and relevant to Instagram audience
+- Recommendations are specific and actionable for carousel creation
+- Brief is written in Portuguese where appropriate (topic terms, audience notes)
+- Research covers both clinical accuracy and patient-facing communication angles

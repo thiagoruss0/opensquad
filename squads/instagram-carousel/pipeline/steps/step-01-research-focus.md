@@ -3,58 +3,48 @@ type: checkpoint
 outputFile: squads/instagram-carousel/output/research-focus.md
 ---
 
-## Checkpoint: Definir Foco de Pesquisa
+## Checkpoint: Foco da Pesquisa
 
-Bem-vindo ao squad de **carrosséis educativos de oftalmologia** para **@drthiagorusso / CEDOA** (Manaus, Brasil).
+Bem-vindo ao pipeline de criacao de carrosseis educativos de oftalmologia.
 
-Antes de começarmos, preciso de duas informações:
+**Squad:** Carrosseis educativos de oftalmologia para @drthiagorusso / CEDOA (Manaus, Brasil)
+
+Antes de comecarmos a pesquisa, preciso de duas informacoes:
 
 ---
 
-### 1. Qual é o tema/foco de pesquisa para o carrossel de hoje?
+### 1. Qual o tema/foco de pesquisa para o carrossel de hoje?
 
 Escreva livremente o assunto que deseja abordar. Exemplos:
 
-- "glaucoma prevenção"
+- "glaucoma prevencao"
 - "cirurgia de catarata mitos"
 - "olho seco e telas"
 - "miopia infantil"
 - "lentes de contato cuidados"
-- "descolamento de retina sinais de alerta"
-- "exame de fundo de olho — por que fazer?"
-- "óculos de sol e proteção UV"
+- "retinopatia diabetica sinais"
+- "presbiopia apos os 40"
+- "protecao UV e saude ocular"
 
-> Dica: temas que conectam com o dia a dia do paciente tendem a performar melhor.
-
----
-
-### 2. Qual período de pesquisa deseja utilizar?
-
-Escolha uma opção (número):
-
-1. **Últimas 24h** — Notícias e publicações mais recentes
-2. **Últimos 7 dias** — Cobertura da semana
-3. **Último mês** — Tendências do mês
-4. **Sem restrição (evergreen)** — Conteúdo atemporal, sem filtro de data
+Pode ser um tema amplo ou bem especifico — o pesquisador vai refinar.
 
 ---
 
-### Formato de resposta esperado
+### 2. Qual o periodo de tempo para a pesquisa?
 
-Responda com:
+Escolha uma opcao (numero):
 
-```
-Tema: [seu tema aqui]
-Período: [número da opção]
-```
-
-Exemplo:
-
-```
-Tema: glaucoma prevenção e diagnóstico precoce
-Período: 4
-```
+1. **Ultimas 24h** — Noticias e publicacoes muito recentes
+2. **Ultimos 7 dias** — Tendencias da semana
+3. **Ultimo mes** — Cobertura mais ampla
+4. **Sem restricao (evergreen)** — Conteudo atemporal, sem filtro de data
 
 ---
 
-> Após sua resposta, o agente pesquisador buscará fontes científicas, artigos recentes e dados relevantes sobre o tema escolhido.
+**Responda com:**
+- O tema desejado (texto livre)
+- O numero do periodo de tempo (1-4)
+
+Exemplo de resposta:
+> Tema: glaucoma e prevencao em idosos
+> Periodo: 3

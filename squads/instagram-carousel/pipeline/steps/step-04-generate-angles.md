@@ -7,10 +7,10 @@ outputFile: squads/instagram-carousel/output/angles.md
 
 ## Context Loading
 
-Load the following files before starting:
+Load the following files before executing:
 
-- `squads/instagram-carousel/output/research-brief.md` — Selected topic and research data
-- `squads/instagram-carousel/pipeline/data/tone-of-voice.md` — Available tones and guidelines
+- `squads/instagram-carousel/output/research-brief.md` — Selected topic from research
+- `squads/instagram-carousel/pipeline/data/tone-of-voice.md` — Available tones of voice
 - `squads/instagram-carousel/pipeline/data/output-examples.md` — Reference carousels
 - `_opensquad/_memory/company.md` — Company context (CEDOA, Dr. Thiago Russo)
 
@@ -18,99 +18,107 @@ Load the following files before starting:
 
 ### Process
 
-1. **Read tone-of-voice.md** and recommend the best tone for this specific topic. Present all 6 available options to the user:
-   - 1. **Educacional Acessível** — Informativo, linguagem clara, sem jargão
-   - 2. **Autoridade Médica** — Técnico mas acessível, reforça credibilidade
-   - 3. **Empático e Acolhedor** — Foco na jornada do paciente, emocional
-   - 4. **Direto e Urgente** — Alertas, prevenção, call-to-action forte
-   - 5. **Conversacional** — Tom de conversa, como se falasse com um amigo
-   - 6. **Storytelling** — Narrativo, casos (anonimizados), jornada do paciente
-   Ask the user to choose one.
+1. **Read `tone-of-voice.md`** and present the 6 available tones to the user. Recommend the best tone for this specific topic based on the subject matter and target audience. The 6 tones are:
+   - Educador Acessivel (didatico, acolhedor)
+   - Autoridade Cientifica (dados, evidencias)
+   - Provocador Consciente (questionador, quebra mitos)
+   - Narrador Empatico (historias, conexao emocional)
+   - Pratico Direto (objetivo, acionavel)
+   - Inspirador Motivacional (positivo, empoderador)
 
-2. **Generate 5 distinct angles** for the selected topic. Each angle MUST use a different emotional perspective:
-   - **Medo**: O que pode acontecer se ignorar? (sem ser alarmista — CFM compliance)
-   - **Oportunidade**: O que há de novo? Avanços, tecnologias, esperança
-   - **Educacional**: O que as pessoas não sabem? Dados surpreendentes
-   - **Contrário**: Qual mito precisa ser derrubado? Visão oposta ao senso comum
-   - **Inspiracional**: Histórias de prevenção bem-sucedida, qualidade de vida
+   Ask the user to choose one tone before proceeding.
+
+2. **Generate 5 distinct angles (angulos)** for the selected topic. Each angle MUST use a different emotional perspective:
+   - **Medo** — O que pode acontecer se ignorar? (consequencias, urgencia)
+   - **Oportunidade** — O que voce ganha ao agir? (beneficios, vantagens)
+   - **Educacional** — O que voce nao sabe sobre isso? (curiosidade, aprendizado)
+   - **Contrario** — O que todo mundo acredita esta errado? (mitos, surpreendente)
+   - **Inspiracional** — Quem ja superou isso? (historias, motivacao)
 
 3. **For each angle**, write:
-   - **Hook** (título do primeiro slide) — máximo 8 palavras, deve parar o scroll
-   - **Abordagem** — Descrição de como o carrossel se desenvolve (3-4 frases)
-   - **Por que funciona** — Justificativa de engajamento e relevância (2-3 frases)
+   - A **hook** (titulo do primeiro slide) — maximo 8 palavras, parada de scroll
+   - A **descricao da abordagem** — como o carrossel vai se desenrolar (3-4 frases)
+   - Uma **justificativa** — por que esse angulo funciona para o publico
 
 ## Output Format
 
 ```markdown
-# Ângulos para Carrossel: [Tema]
+# Angulos para Carrossel: [Topic]
 
-## Tom de Voz Selecionado
-[Tom escolhido pelo usuário]
+**Tom de voz escolhido:** [tone]
 
----
+## Angulo 1: MEDO
+**Hook:** [titulo do slide 1]
+**Abordagem:** [como o carrossel se desenrola]
+**Por que funciona:** [justificativa]
 
-### Ângulo 1 — Medo
-**Hook**: "[título do slide 1]"
-**Abordagem**: [descrição da narrativa do carrossel]
-**Por que funciona**: [justificativa]
+## Angulo 2: OPORTUNIDADE
+**Hook:** [titulo do slide 1]
+**Abordagem:** [como o carrossel se desenrola]
+**Por que funciona:** [justificativa]
 
-### Ângulo 2 — Oportunidade
-**Hook**: "[título do slide 1]"
-**Abordagem**: [descrição]
-**Por que funciona**: [justificativa]
+## Angulo 3: EDUCACIONAL
+**Hook:** [titulo do slide 1]
+**Abordagem:** [como o carrossel se desenrola]
+**Por que funciona:** [justificativa]
 
-[... ângulos 3-5 ...]
+## Angulo 4: CONTRARIO
+**Hook:** [titulo do slide 1]
+**Abordagem:** [como o carrossel se desenrola]
+**Por que funciona:** [justificativa]
+
+## Angulo 5: INSPIRACIONAL
+**Hook:** [titulo do slide 1]
+**Abordagem:** [como o carrossel se desenrola]
+**Por que funciona:** [justificativa]
 ```
 
 ## Output Example
 
 ```markdown
-# Ângulos para Carrossel: Glaucoma Prevenção
+# Angulos para Carrossel: Glaucoma e Prevencao
 
-## Tom de Voz Selecionado
-Direto e Urgente
+**Tom de voz escolhido:** Educador Acessivel
 
----
+## Angulo 1: MEDO
+**Hook:** Voce pode estar perdendo a visao agora
+**Abordagem:** Abre com dado chocante (50% nao sabem que tem). Mostra progressao silenciosa do glaucoma em 4 slides visuais. Compara visao normal vs. visao com glaucoma avancado. Fecha com urgencia: "quando voce percebe, ja perdeu 40% do campo visual."
+**Por que funciona:** Medo de perda irreversivel e o gatilho mais forte para agendar consulta. Dado do "50% nao diagnosticados" gera compartilhamento.
 
-### Ângulo 1 — Medo
-**Hook**: "Você pode estar perdendo a visão agora"
-**Abordagem**: Começar com o dado impactante de que 50% dos pacientes não sabem que têm glaucoma. Cada slide revela um "sinal invisível" que passa despercebido. Finalizar com a importância do exame preventivo e CTA para agendamento.
-**Por que funciona**: O medo de perder a visão é universal. Dados concretos evitam sensacionalismo e mantêm compliance com CFM. Gera urgência para agendar consulta.
+## Angulo 2: OPORTUNIDADE
+**Hook:** Um exame de 15min salva sua visao
+**Abordagem:** Foca na simplicidade da prevencao. Slide a slide mostra o que acontece no exame oftalmologico. Destaca que deteccao precoce = 95% de preservacao visual. CTA forte para agendamento.
+**Por que funciona:** Remove a barreira do medo do exame. Transforma prevencao em algo facil e acessivel. Tom positivo gera saves.
 
-### Ângulo 2 — Oportunidade
-**Hook**: "Glaucoma tem tratamento — e ele evoluiu"
-**Abordagem**: Apresentar os avanços recentes: colírios sem conservantes, laser SLT, diagnóstico com IA. Cada slide mostra uma evolução tecnológica. Fechar com esperança e acessibilidade do tratamento.
-**Por que funciona**: Conteúdo positivo gera compartilhamentos. Posiciona o Dr. Thiago como atualizado. Quebra a narrativa de que "glaucoma = cegueira inevitável".
+## Angulo 3: EDUCACIONAL
+**Hook:** 5 fatos sobre glaucoma que surpreendem
+**Abordagem:** Lista format com fatos contra-intuitivos: pressao normal tambem causa, jovens tambem tem, colirio nao cura mas preserva, cirurgia existe, genetica importa. Cada slide um fato com explicacao curta.
+**Por que funciona:** Formato lista e o mais salvo no Instagram. "Surpreendem" gera curiosidade para deslizar. Educacao pura sem tom de venda.
 
-### Ângulo 3 — Educacional
-**Hook**: "6 fatos sobre glaucoma que surpreendem"
-**Abordagem**: Formato listicle com dados pouco conhecidos — glaucoma de pressão normal, fator genético 4-9x, prevalência em jovens. Cada slide é um fato com dado + fonte resumida.
-**Por que funciona**: Formato listicle gera curiosidade slide a slide. Dados surpreendentes motivam saves e compartilhamentos. Posiciona como fonte confiável de informação.
+## Angulo 4: CONTRARIO
+**Hook:** Glaucoma nao e so pressao alta no olho
+**Abordagem:** Desmonta o mito mais comum. Explica glaucoma de pressao normal (30% dos casos). Mostra outros fatores de risco que as pessoas ignoram. Conclui: "por isso o exame completo importa mais que medir pressao."
+**Por que funciona:** Quebra de crenca gera engajamento ("eu nao sabia!"). Posiciona o medico como autoridade que vai alem do obvio. Alto potencial de compartilhamento.
 
-### Ângulo 4 — Contrário
-**Hook**: "Glaucoma não é doença de idoso"
-**Abordagem**: Começar derrubando o mito mais comum. Cada slide confronta um mito com a realidade baseada em dados. Incluir faixa etária real de risco, fatores genéticos, e tipos menos conhecidos.
-**Por que funciona**: Conteúdo "mito vs realidade" é um dos formatos com maior engajamento no Instagram médico. Gera comentários de pessoas que se identificam.
-
-### Ângulo 5 — Inspiracional
-**Hook**: "Ela descobriu a tempo. Você também pode"
-**Abordagem**: Narrativa de um caso anonimizado de paciente que descobriu glaucoma em exame de rotina. Mostrar a jornada: sintomas imperceptíveis → exame preventivo → diagnóstico precoce → tratamento → qualidade de vida preservada.
-**Por que funciona**: Storytelling humaniza a medicina. Casos reais (anonimizados) geram identificação. CTA natural para prevenção.
+## Angulo 5: INSPIRACIONAL
+**Hook:** Ela descobriu a tempo e nao perdeu a visao
+**Abordagem:** Caso (anonimizado) de paciente que fez exame de rotina, descobriu glaucoma precoce, tratou e preservou visao. Timeline: antes, diagnostico, tratamento, hoje. Mensagem: "sua historia tambem pode ter final feliz."
+**Por que funciona:** Storytelling gera conexao emocional. Mostra resultado real do cuidado preventivo. Humaniza o consultorio e gera confianca.
 ```
 
 ## Veto Conditions
 
-- **REJEITAR** se houver menos de 5 ângulos distintos
-- **REJEITAR** se ângulos forem apenas temas diferentes (devem ser perspectivas emocionais diferentes sobre o MESMO tema)
-- **REJEITAR** se qualquer ângulo violar normas do CFM (promessas de resultado, antes/depois, sensacionalismo médico)
-- **REJEITAR** se hooks tiverem mais de 8 palavras
-- **REJEITAR** se não houver seleção de tom de voz
+- **REJECT** if fewer than 5 angles are presented
+- **REJECT** if angles are merely different subtopics (not different emotional perspectives on the same topic)
+- **REJECT** if any angle contains language that violates CFM (Conselho Federal de Medicina) — no result guarantees, no superlatives like "o melhor", no before/after promises
+- **REJECT** if hooks exceed 8 words or are generic/weak
+- **REJECT** if tone of voice was not confirmed with user before generating
 
 ## Quality Criteria
 
-- Cada ângulo usa uma perspectiva emocional genuinamente diferente
-- Hooks são concisos, provocativos e param o scroll
-- Abordagens descrevem uma narrativa clara de início, meio e fim do carrossel
-- Justificativas conectam com métricas de engajamento do Instagram (saves, shares, comments)
-- Todos os ângulos são viáveis dentro das normas do CFM
-- Tom de voz é consistente dentro de cada ângulo
+- Each angle is clearly distinct in emotional approach
+- Hooks are specific, concrete, and scroll-stopping
+- Abordagem descriptions are detailed enough to visualize the full carousel
+- Justificativas reference audience behavior (saves, shares, comments)
+- All content maintains medical accuracy from the research brief
+- Language is natural Brazilian Portuguese, not formal/academic
