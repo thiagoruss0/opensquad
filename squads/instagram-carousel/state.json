@@ -1,13 +1,13 @@
 {
   "squad": "instagram-carousel",
-  "status": "idle",
-  "step": { "current": 0, "total": 11, "label": "" },
+  "status": "running",
+  "step": { "current": 2, "total": 11, "label": "step-02-pesquisa" },
   "agents": [
     {
       "id": "pesquisador",
       "name": "Pedro Pesquisa",
       "icon": "🔍",
-      "status": "idle",
+      "status": "working",
       "deliverTo": null,
       "desk": { "col": 1, "row": 1 }
     },
@@ -45,6 +45,6 @@
     }
   ],
   "handoff": null,
-  "startedAt": null,
-  "updatedAt": "2026-03-18T20:54:35-04:00"
+  "startedAt": "2026-03-18T20:54:35-04:00",
+  "updatedAt": "2026-03-18T20:55:10-04:00"
 }
