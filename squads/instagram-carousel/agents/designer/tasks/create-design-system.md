@@ -33,17 +33,11 @@ design_system:
     muted: { hex: "#XXXXXX", usage: "string" }
   typography:
     font_family: "string"
-    scale:
-      hero: { size: "Xpx", weight: "number", line_height: "X.X" }
-      heading: { size: "Xpx", weight: "number", line_height: "X.X" }
-      body: { size: "Xpx", weight: "number", line_height: "X.X" }
-      caption: { size: "Xpx", weight: "number", line_height: "X.X" }
+    scale: { hero: {}, heading: {}, body: {}, caption: {} }
   spacing: { base_unit: "Xpx", margins: "Xpx", content_width: "Xpx" }
   grid: { columns: 1, safe_zone: { top: "Xpx", bottom: "Xpx" } }
   contrast_checks:
-    - pair: "text on primary"
-      ratio: "X.X:1"
-      passes: true
+    - { pair: "text on primary", ratio: "X.X:1", passes: true }
 ```
 
 ## Output Example
