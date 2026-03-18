@@ -6,153 +6,162 @@ outputFile: squads/instagram-carousel/output/review-result.md
 model_tier: powerful
 ---
 
-# Step 09: Revisão de Qualidade
-
 ## Context Loading
 
-Load these files before executing:
-- `squads/instagram-carousel/output/carousel-draft.md` — Carousel content (slides + caption)
-- `squads/instagram-carousel/output/slides/rendered/manifest.json` — Rendered images metadata
-- `squads/instagram-carousel/pipeline/data/quality-criteria.md` — Scoring criteria
-- `squads/instagram-carousel/pipeline/data/anti-patterns.md` — What to avoid
-- `squads/instagram-carousel/output/research-brief.md` — Sources for fact-checking
-- `_opensquad/_memory/company.md` — Brand guidelines
+Load the following files before executing:
+
+- `squads/instagram-carousel/output/carousel-draft.md` — Full carousel content
+- `squads/instagram-carousel/output/slides/rendered/manifest.json` — Rendered slide images
+- `squads/instagram-carousel/pipeline/data/quality-criteria.md` — Scoring criteria definitions
+- `squads/instagram-carousel/pipeline/data/anti-patterns.md` — Known mistakes to avoid
+- `_opensquad/_memory/company.md` — CEDOA brand standards
+- `squads/instagram-carousel/output/research-brief.md` — Original sources for fact-checking
 
 ## Instructions
 
 ### Process
 
-1. **Load quality criteria** from quality-criteria.md. Understand each criterion and its scoring rubric before reading the content.
+1. **Score each quality criterion** from `quality-criteria.md` on a 1-10 scale:
+   - For each criterion, provide a numeric score AND a written justification (2-3 sentences)
+   - Be specific — reference actual slide content, word choices, or data points
+   - Do not inflate scores; a 7 is "good, meets expectations"
 
-2. **Read the carousel content thoroughly** — every slide, the full caption, hashtags. Note initial impressions but do not score until the full read is complete.
+2. **Check medical accuracy** against `research-brief.md`:
+   - Every medical claim in the carousel must trace back to a source in the research brief
+   - Flag any claim that is exaggerated, oversimplified beyond accuracy, or unsourced
+   - Verify statistics and numbers match the original sources
 
-3. **Score each criterion** on a 1-10 scale with written justification:
-   - Medical Accuracy (critical — hard reject below 4)
-   - CFM Compliance (critical — hard reject below 4)
-   - Hook Effectiveness
-   - Slide Content Quality
-   - CTA & Engagement Design
-   - Caption Quality
-   - Visual Design Quality (from manifest.json metadata)
-   - Brand Alignment
+3. **Check CFM compliance** against Conselho Federal de Medicina rules:
+   - No guarantees of results (e.g., "vai curar", "resultado garantido")
+   - No superlatives (e.g., "o melhor", "o unico", "revolucionario")
+   - No before/after with promises
+   - Educational framing, not promotional
+   - Proper medical disclaimer or CRM identification
 
-4. **Fact-check medical claims** against research-brief.md sources. Flag any claim without a verifiable source.
+4. **Check visual quality** (if rendered images are accessible via manifest.json):
+   - Text readability at mobile size
+   - Brand consistency across slides
+   - Contrast and accessibility
+   - Professional appearance appropriate for medical content
 
-5. **Check CFM compliance**: no result guarantees, no superlatives, no patient identification, educational framing present.
-
-6. **Compile verdict**: Calculate overall average. Apply decision rules:
-   - APPROVE: overall >= 7/10 AND no criterion below 4/10
-   - REJECT: overall < 7/10 OR any criterion below 4/10
-   - CONDITIONAL APPROVE: overall >= 7 with minor non-critical issues
-
-7. **Write structured review** with verdict, scoring table, detailed feedback, required changes (if reject), and non-blocking suggestions.
+5. **Compile the final verdict:**
+   - **APPROVE** if: overall average score >= 7.0 AND no individual criterion scores below 4
+   - **REJECT** if: overall average < 7.0 OR any criterion scores below 4
+   - If REJECT: list required changes with specific instructions and clear path to approval
+   - If APPROVE: list optional suggestions for improvement (non-blocking)
 
 ## Output Format
 
-```
-==============================
- REVIEW VERDICT: [APPROVE/REJECT/CONDITIONAL APPROVE]
-==============================
+```markdown
+# Review Result
 
-Content: "[Carousel title]"
-Type: Instagram Carousel ([N] slides)
-Review Date: YYYY-MM-DD
-Revision: [N] of 3
+**Verdict:** [APPROVE / REJECT]
+**Overall Score:** [X.X / 10]
+**Date:** [date]
+**Reviewer:** Revisora (QA Agent)
 
-------------------------------
- SCORING TABLE
-------------------------------
-| Criterion              | Score  | Summary                                |
-|------------------------|--------|----------------------------------------|
-| Medical Accuracy       | X/10   | [One-line summary]                     |
-| CFM Compliance         | X/10   | [One-line summary]                     |
-| Hook Effectiveness     | X/10   | [One-line summary]                     |
-| Slide Content Quality  | X/10   | [One-line summary]                     |
-| CTA & Engagement       | X/10   | [One-line summary]                     |
-| Caption Quality        | X/10   | [One-line summary]                     |
-| Visual Design          | X/10   | [One-line summary]                     |
-| Brand Alignment        | X/10   | [One-line summary]                     |
-------------------------------
- OVERALL: X.X/10
-------------------------------
+## SCORING TABLE
 
-DETAILED FEEDBACK:
+| Criterion | Score | Justification |
+|-----------|-------|---------------|
+| [criterion 1] | X/10 | [justification] |
+| [criterion 2] | X/10 | [justification] |
+| ... | ... | ... |
 
-Strength: [Specific positive observation with reference]
+**Average:** X.X/10
 
-Required change: [Specific issue, location, and fix — only if REJECT]
+## DETAILED FEEDBACK
 
-Suggestion (non-blocking): [Optional improvement]
+### Medical Accuracy
+[Assessment of factual claims, source traceability, accuracy of statistics]
 
-VERDICT: [Final verdict with summary rationale]
+### CFM Compliance
+[Assessment against CFM rules, any violations found]
+
+### Content Quality
+[Assessment of writing, flow, engagement potential, tone consistency]
+
+### Visual Quality
+[Assessment of design, readability, brand consistency]
+
+## REQUIRED CHANGES (if REJECT)
+
+1. [Specific change with instructions]
+2. [Specific change with instructions]
+...
+
+**Path to approval:** [What needs to happen for this to pass]
+
+## SUGGESTIONS (non-blocking)
+
+1. [Optional improvement]
+2. [Optional improvement]
+...
 ```
 
 ## Output Example
 
-```
-==============================
- REVIEW VERDICT: APPROVE
-==============================
+```markdown
+# Review Result
 
-Content: "5 sinais de que seus olhos estão pedindo ajuda"
-Type: Instagram Carousel (7 slides)
-Review Date: 2026-03-18
-Revision: 1 of 3
+**Verdict:** APPROVE
+**Overall Score:** 8.2 / 10
+**Date:** 2026-03-18
+**Reviewer:** Revisora (QA Agent)
 
-------------------------------
- SCORING TABLE
-------------------------------
-| Criterion              | Score  | Summary                                         |
-|------------------------|--------|-------------------------------------------------|
-| Medical Accuracy       | 9/10   | All claims verified against SBO and AAO sources  |
-| CFM Compliance         | 10/10  | No violations detected, educational framing used |
-| Hook Effectiveness     | 8/10   | Strong curiosity hook, works within 125 chars    |
-| Slide Content Quality  | 8/10   | Good two-layer hierarchy, 45-70 words per slide  |
-| CTA & Engagement       | 7/10   | Save + share CTA present, could be more specific |
-| Caption Quality        | 8/10   | SEO keywords present, good line breaks           |
-| Visual Design          | 8/10   | Consistent system, meets all font minimums       |
-| Brand Alignment        | 9/10   | CEDOA identity clear, empathetic tone maintained  |
-------------------------------
- OVERALL: 8.4/10
-------------------------------
+## SCORING TABLE
 
-DETAILED FEEDBACK:
+| Criterion | Score | Justification |
+|-----------|-------|---------------|
+| Hook Impact | 9/10 | "5 fatos sobre glaucoma que surpreendem" — forte uso de curiosidade e numero especifico. Gera vontade de deslizar. Dentro do limite de 8 palavras. |
+| Medical Accuracy | 8/10 | Todos os dados rastreados ate fontes do research brief. Estatistica de "50% nao diagnosticados" confirmada pela OMS e CBO. Dado de "4-9x risco familiar" alinhado com o estudo EPIC-Brazil. |
+| CFM Compliance | 9/10 | Sem garantias de resultado. Linguagem educativa consistente. "Pode preservar" em vez de "vai curar". CRM identificado na caption. Nenhuma violacao encontrada. |
+| Slide Flow | 8/10 | Progressao logica de fatos surpreendentes, cada slide adicionando nova informacao. Transicao para CTA e natural. Slide 4 (jovens) poderia ter transicao mais forte para slide 5 (genetica). |
+| Tone Consistency | 8/10 | Tom "Educador Acessivel" bem mantido. Linguagem acolhedora sem ser condescendente. Caption complementa os slides sem repetir. Slide 6 sobre colirios esta levemente mais tecnico que os demais. |
+| CTA Effectiveness | 7/10 | "Agende sua avaliacao" e claro e acionavel. Poderia ser mais especifico (mencionar link na bio, WhatsApp). "Salve este post" e bom para algoritmo. |
+| Caption Quality | 8/10 | Hook nos primeiros 125 caracteres funciona bem. Corpo adiciona contexto sem repetir slides. Dentro do limite de 2200 caracteres. Boa estrutura com bullet points. |
+| Hashtag Strategy | 8/10 | Mix equilibrado: #glaucoma (amplo), #saudeocular (medio), #oftalmologia (nicho profissional), #prevencao (amplo saude), #cedoamanaus (marca local). |
+| Visual Design | 8/10 | Paleta CEDOA aplicada consistentemente. Tipografia legivel. Bom uso de espaco branco. Contraste acima de 4.5:1 em todos os slides. CTA slide se destaca visualmente. |
+| Engagement Potential | 9/10 | Formato lista e altamente salvavel. "Surpreendem" gera compartilhamento. Dados contra-intuitivos (pressao normal, jovens) geram comentarios. Potencial de salvar e compartilhar e alto. |
 
-Strength: The hook "5 sinais de que seus olhos estão pedindo ajuda" creates
-immediate personal relevance. The personification of eyes "pedindo ajuda"
-is an effective emotional trigger that drives curiosity to swipe.
+**Average:** 8.2/10
 
-Strength: Slide 4 about moscas volantes includes the critical urgency
-distinction (usually harmless vs. possible retinal detachment), which
-demonstrates responsible medical communication.
+## DETAILED FEEDBACK
 
-Suggestion (non-blocking): The CTA on slide 7 reads "Salve esse carrossel."
-Consider making it more share-oriented: "Manda esse carrossel para alguém
-que vive reclamando de dor de cabeça." Share CTAs generate higher algorithmic
-distribution than save CTAs alone.
+### Medical Accuracy
+Todos os 7 dados medicos apresentados nos slides foram verificados contra o research brief. A estatistica de "30% de glaucoma de pressao normal" e do estudo EPIC-Brazil 2025, confirmada pelas diretrizes AAO 2026. O dado de "15 minutos" para o exame e uma estimativa razoavel para exame oftalmologico completo com OCT. Nenhuma afirmacao exagerada ou imprecisa encontrada.
 
-Suggestion (non-blocking): Caption could include "Dr. Thiago Russo, CRM/AM XXXXX"
-at the end to reinforce physician authority in the caption itself, not just
-the profile bio.
+### CFM Compliance
+Nenhuma violacao do CFM identificada. O carrossel mantem framing educativo em todos os slides. Usos de "pode preservar", "pode mudar tudo" (possibilidade, nao garantia) estao adequados. O CRM esta presente na caption. Recomendacao: incluir "Consulte seu oftalmologista" em pelo menos um slide alem do CTA.
 
-VERDICT: APPROVE — Content meets all quality criteria with strong medical
-accuracy and CFM compliance. Non-blocking suggestions provided for optimization.
+### Content Quality
+Redacao clara e acessivel. Cada slide tem entre 42-68 palavras, dentro da faixa alvo. Transicoes entre slides sao logicas. O tom "Educador Acessivel" e mantido com consistencia. A caption complementa os slides adicionando contexto das fontes sem repetir o conteudo dos slides.
+
+### Visual Quality
+Design limpo e profissional. Paleta de cores CEDOA aplicada em todos os 9 slides. Hierarquia tipografica clara. Texto legivel em preview mobile. Slide CTA tem tratamento visual distinto (cor de destaque). Nenhum texto cortado ou overflow detectado.
+
+## SUGGESTIONS (non-blocking)
+
+1. Slide 6 (colirios): Simplificar "reduz a pressao intraocular e desacelera a progressao" para linguagem mais acessivel, ex: "ajuda a controlar a pressao dentro do olho"
+2. CTA: Adicionar "Link na bio" ou "Mande um direct" para facilitar a acao
+3. Caption: Considerar adicionar emoji estrategico (olho, seta) para quebra visual no feed
+4. Hashtag: Considerar trocar #prevencao por #checkupocular — mais especifico e menos saturado
 ```
 
 ## Veto Conditions
 
-Reject and redo if ANY are true:
-1. Review delivered without scoring every criterion from quality-criteria.md
-2. Rejection without actionable fixes (specific location + specific change)
-3. Approval without thorough content read (missing detail in feedback)
-4. Scores contradict the verdict (all 8+ but REJECT, or 3/10 but APPROVE)
+- **REJECT the review** if it does not score every criterion from quality-criteria.md
+- **REJECT the review** if a REJECT verdict lacks specific, actionable required changes
+- **REJECT the review** if an APPROVE verdict was given without thorough content analysis
+- **REJECT the review** if medical accuracy check does not reference specific claims and sources
+- **REJECT the review** if CFM compliance check is superficial (must address each rule)
 
 ## Quality Criteria
 
-- [ ] Every criterion from quality-criteria.md is scored with justification
-- [ ] Every rejected criterion includes specific fix with location reference
-- [ ] At least one "Strength:" item is present, even in REJECT reviews
-- [ ] Non-blocking suggestions clearly labeled and separated from required changes
-- [ ] Verdict matches the scores mathematically
-- [ ] Medical claims fact-checked against research-brief.md sources
-- [ ] CFM compliance explicitly verified
+- Every score has a specific, evidence-based justification
+- Medical claims are individually verified against research brief sources
+- CFM compliance check is thorough and references specific rules
+- Feedback is constructive and actionable (not vague praise or criticism)
+- The verdict follows the scoring rules strictly (no subjective overrides)
+- Suggestions are genuinely useful improvements, not nitpicks
+- The review demonstrates that the content was read thoroughly, not skimmed

@@ -5,12 +5,11 @@ inputFile: squads/instagram-carousel/output/slides/rendered/manifest.json
 outputFile: squads/instagram-carousel/output/publish-report.md
 ---
 
-# Step 11: Publicação no Instagram
-
 ## Context Loading
 
-Load these files before executing:
-- `squads/instagram-carousel/output/slides/rendered/manifest.json` — Image files and metadata
+Load the following files before executing:
+
+- `squads/instagram-carousel/output/slides/rendered/manifest.json` — Rendered slide images and paths
 - `squads/instagram-carousel/output/carousel-draft.md` — Caption and hashtags
 - `squads/instagram-carousel/output/review-result.md` — Must be APPROVE or user override
 
@@ -18,142 +17,146 @@ Load these files before executing:
 
 ### Process
 
-1. **Verify review status**: Read review-result.md. Only proceed if verdict is APPROVE or user explicitly overrode a REJECT in step-10.
+1. **Validate all images** from manifest.json:
+   - Format: JPEG or PNG (convert to JPEG if needed for Instagram)
+   - Dimensions: 1080x1440 pixels (Instagram portrait ratio 4:5)
+   - Count: between 2 and 10 images (Instagram carousel limits)
+   - File size: each under 8MB
+   - All files exist and are readable
 
-2. **Load images** from manifest.json. Verify each file exists and is accessible.
+2. **Validate caption** from carousel-draft.md:
+   - Total length under 2200 characters
+   - Hashtags present (max 30, recommended 5)
+   - No broken formatting or encoding issues
+   - Hook visible in first 125 characters
 
-3. **Validate platform requirements**:
-   - Image format: JPEG (convert from PNG if needed)
-   - Image count: 2-10 images (carousel requirement)
-   - Image dimensions: 1080x1440px
-   - Caption length: under 2,200 characters
-   - Hashtags: present and reasonable (5)
+3. **Present structured publish preview** to user:
+   - Number of slides
+   - Caption preview (first 125 chars + full)
+   - Hashtags
+   - Account: @drthiagorusso
+   - Estimated publish time
 
-4. **Present structured publish preview** to user:
-   ```
-   PUBLISH PREVIEW
-   Platform: Instagram (carousel)
-   Account: @drthiagorusso
-   Images: N slides (slide-01.jpg through slide-NN.jpg)
-   Caption: [first 200 chars]... (X / 2,200 chars)
-   Hashtags: #tag1 #tag2 ... (N)
-   Validation: All checks passed
-   ```
+4. **Execute dry-run first** (--dry-run flag):
+   - Simulate the full publish flow without actually posting
+   - Validate API authentication
+   - Validate image upload capability
+   - Validate caption formatting
+   - Report any errors or warnings
 
-5. **Execute dry-run** using instagram-publisher skill with `--dry-run` flag:
-   - Verify credentials (token not expired)
-   - Upload images to imgbb
-   - Create media containers
-   - Create carousel container
-   - Skip final publish
+5. **Report dry-run results** and request final confirmation:
+   - Show dry-run status (PASS / FAIL)
+   - If FAIL: show errors and stop
+   - If PASS: ask user for final "Publicar agora?" confirmation
 
-6. **Report dry-run results**:
-   ```
-   DRY-RUN RESULT
-   Credentials: Valid (expires YYYY-MM-DD)
-   Image upload: N/N uploaded to imgbb
-   Containers: N/N created
-   Carousel: Created successfully
-   Publish: Skipped (dry-run mode)
-   ```
+6. **Publish live** via instagram-publisher skill:
+   - Upload all slides in order
+   - Set caption with hashtags
+   - Publish as carousel post
+   - Wait for confirmation from API
 
-7. **Request final confirmation**: "Dry-run passed. Confirma publicação no Instagram?"
+7. **Report results:**
+   - Post URL (permalink)
+   - Post ID
+   - Timestamp of publication
+   - Rate limit status (remaining calls)
+   - Any warnings
 
-8. **Publish live** and report results:
-   ```
-   PUBLISH RESULT
-   Published successfully
-   Post URL: https://www.instagram.com/p/XXXXX/
-   Post ID: 1789XXXXXXX
-   Published: YYYY-MM-DD HH:MM:SS UTC
-   Rate limit: X/25 posts used in last 24h
-   ```
-
-9. **Save publish report** to output/publish-report.md with all details.
+8. **Save complete publish report** to `output/publish-report.md`.
 
 ## Output Format
 
-```
-PUBLISH REPORT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Squad: instagram-carousel
-Date: YYYY-MM-DD HH:MM:SS UTC
+```markdown
+# Publish Report
 
-PREVIEW
-  Platform: Instagram (carousel)
-  Account: @drthiagorusso
-  Images: N slides
-  Caption: X / 2,200 chars
-  Hashtags: N hashtags
-  Validation: [passed/failed]
+**Status:** [SUCCESS / FAILED]
+**Date:** [timestamp]
+**Account:** @drthiagorusso
 
-DRY-RUN
-  Credentials: [valid/expired]
-  Upload: [N/N]
-  Containers: [N/N]
-  Status: [passed/failed]
+## PREVIEW
 
-PUBLISH
-  Status: [success/failed]
-  Post URL: [URL]
-  Post ID: [ID]
-  Rate limit: [X/25]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- Slides: [N] images ([format], [dimensions])
+- Caption: [character count] characters
+- Hashtags: [count] hashtags
+- Account: @drthiagorusso
+
+## DRY-RUN RESULT
+
+- Status: [PASS / FAIL]
+- Authentication: [OK / FAILED]
+- Image validation: [OK / FAILED - details]
+- Caption validation: [OK / FAILED - details]
+- Errors: [none / list of errors]
+- Warnings: [none / list of warnings]
+
+## PUBLISH RESULT
+
+- Status: [SUCCESS / FAILED]
+- Post URL: [permalink]
+- Post ID: [id]
+- Published at: [ISO timestamp]
+- Rate limit: [remaining]/[total] calls
+- Errors: [none / details]
+
+## SUMMARY
+
+[1-2 sentence summary of the publish outcome]
 ```
 
 ## Output Example
 
-```
-PUBLISH REPORT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Squad: instagram-carousel
-Date: 2026-03-18 15:42:30 UTC
+```markdown
+# Publish Report
 
-PREVIEW
-  Platform: Instagram (carousel)
-  Account: @drthiagorusso
-  Images: 7 slides
-    1. slide-01.jpg (1080x1440, JPEG, 312KB)
-    2. slide-02.jpg (1080x1440, JPEG, 195KB)
-    3. slide-03.jpg (1080x1440, JPEG, 213KB)
-    4. slide-04.jpg (1080x1440, JPEG, 178KB)
-    5. slide-05.jpg (1080x1440, JPEG, 201KB)
-    6. slide-06.jpg (1080x1440, JPEG, 192KB)
-    7. slide-07.jpg (1080x1440, JPEG, 244KB)
-  Caption: "Seus olhos estão tentando te avisar alguma coisa?..." (1,234 / 2,200 chars)
-  Hashtags: #oftalmologista #saudeocular #glaucoma #cedoa #manaus (5)
-  Validation: All checks passed
+**Status:** SUCCESS
+**Date:** 2026-03-18T15:45:00-04:00
+**Account:** @drthiagorusso
 
-DRY-RUN
-  Credentials: Valid (expires 2026-05-17)
-  Upload: 7/7 images uploaded to imgbb
-  Containers: 7/7 media containers created
-  Carousel container: Created successfully
-  Status: PASSED
+## PREVIEW
 
-PUBLISH
-  Status: SUCCESS
-  Post URL: https://www.instagram.com/p/ABC123xyz/
-  Post ID: 17899506834567890
-  Published: 2026-03-18 15:42:30 UTC
-  Rate limit: 4/25 posts used in last 24h
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- Slides: 9 images (JPEG, 1080x1440)
+- Caption: 1847 characters
+- Hashtags: 5 hashtags (#glaucoma #saudeocular #oftalmologia #prevencao #cedoamanaus)
+- Account: @drthiagorusso
+
+## DRY-RUN RESULT
+
+- Status: PASS
+- Authentication: OK (token valid until 2026-04-17)
+- Image validation: OK (9 images, all JPEG, all 1080x1440, largest 256KB)
+- Caption validation: OK (1847/2200 chars, hook in first 125 chars, 5 hashtags)
+- Errors: none
+- Warnings: none
+
+## PUBLISH RESULT
+
+- Status: SUCCESS
+- Post URL: https://www.instagram.com/p/ABC123xyz/
+- Post ID: 17890012345678901
+- Published at: 2026-03-18T15:45:12-04:00
+- Rate limit: 187/200 calls remaining (resets in 58 minutes)
+- Errors: none
+
+## SUMMARY
+
+Carrossel "5 fatos sobre glaucoma que surpreendem" publicado com sucesso na conta @drthiagorusso. 9 slides em formato 1080x1440, caption com 1847 caracteres. Post disponivel em https://www.instagram.com/p/ABC123xyz/.
 ```
 
 ## Veto Conditions
 
-Reject and redo if ANY are true:
-1. Publishing attempted without explicit user confirmation
-2. Publishing attempted without successful dry-run
-3. Success reported without post URL/permalink
-4. Review-result.md shows REJECT without user override
+- **REJECT** if publication is attempted without explicit user confirmation
+- **REJECT** if publication is attempted without a successful dry-run first
+- **REJECT** if the publish report does not include the post URL on success
+- **REJECT** if images fail validation (wrong dimensions, too large, wrong format) and publish proceeds anyway
+- **REJECT** if caption exceeds 2200 characters and publish proceeds
+- **REJECT** if review-result.md shows REJECT and there is no user override on record
 
 ## Quality Criteria
 
-- [ ] User confirmation received before live publish
-- [ ] Dry-run executed and passed before live publish
-- [ ] All platform validations passed (format, dimensions, caption length)
-- [ ] Structured preview presented with complete details
-- [ ] Success report includes post URL, post ID, and timestamp
-- [ ] Rate limit status reported
-- [ ] Complete publish report saved to output/publish-report.md
+- All validations run before any publish attempt
+- Dry-run catches issues before live publish
+- User has explicit final confirmation opportunity
+- Publish report is complete with all fields populated
+- Error handling is graceful (failures reported clearly, no silent errors)
+- Rate limit is tracked and reported to avoid API throttling
+- Post URL is verified accessible after publish
