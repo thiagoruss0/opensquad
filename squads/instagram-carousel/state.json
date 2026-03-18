@@ -1,7 +1,7 @@
 {
   "squad": "instagram-carousel",
   "status": "running",
-  "step": { "current": 5, "total": 11, "label": "step-05-angle-selection" },
+  "step": { "current": 7, "total": 11, "label": "step-07-content-approval" },
   "agents": [
     {
       "id": "pesquisador",
@@ -15,8 +15,8 @@
       "id": "redator",
       "name": "Carlos Carrossel",
       "icon": "✍️",
-      "status": "working",
-      "deliverTo": null,
+      "status": "delivering",
+      "deliverTo": "designer",
       "desk": { "col": 2, "row": 1 }
     },
     {
@@ -44,7 +44,12 @@
       "desk": { "col": 2, "row": 2 }
     }
   ],
-  "handoff": null,
+  "handoff": {
+    "from": "redator",
+    "to": "designer",
+    "message": "Carrossel de 9 slides escrito. Tom Educativo Empático. Ângulo Educacional (5 fatos). Aguardando aprovação do conteúdo.",
+    "completedAt": "2026-03-18T21:10:00-04:00"
+  },
   "startedAt": "2026-03-18T20:54:35-04:00",
-  "updatedAt": "2026-03-18T21:05:00-04:00"
+  "updatedAt": "2026-03-18T21:10:00-04:00"
 }
