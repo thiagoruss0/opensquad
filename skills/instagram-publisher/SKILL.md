@@ -1,26 +1,29 @@
 ---
 name: instagram-publisher
 description: >
-  Publishes Instagram carousel posts from local images.
+  Publishes Instagram posts (single image or carousel) from local images.
   Uploads images to imgbb for temporary public hosting, creates Instagram
-  media containers via the Graph API, and publishes the carousel.
-  Supports 2-10 images per post and retrieves the real post permalink.
+  media containers via the Graph API, and publishes the post.
+  Supports 1-10 images per post and retrieves the real post permalink.
+  Works standalone (Claude/cowork) or inside Opensquad pipelines.
 description_pt-BR: >
-  Publica carrosséis do Instagram a partir de imagens locais.
+  Publica posts no Instagram (imagem única ou carrossel) a partir de imagens locais.
   Faz upload das imagens para o imgbb como hospedagem pública temporária,
-  cria containers de mídia via Graph API e publica o carrossel.
-  Suporta de 2 a 10 imagens por post e obtém o permalink real.
+  cria containers de mídia via Graph API e publica o post.
+  Suporta de 1 a 10 imagens por post e obtém o permalink real.
+  Funciona standalone (Claude/cowork) ou dentro de pipelines Opensquad.
 description_es: >
-  Publica carruseles de Instagram a partir de imágenes locales.
+  Publica posts en Instagram (imagen individual o carrusel) a partir de imágenes locales.
   Sube las imágenes a imgbb como hosting público temporal, crea
-  contenedores de medios vía Graph API y publica el carrusel.
-  Soporta de 2 a 10 imágenes por post y obtiene el permalink real.
+  contenedores de medios vía Graph API y publica el post.
+  Soporta de 1 a 10 imágenes por post y obtiene el permalink real.
+  Funciona standalone (Claude/cowork) o dentro de pipelines Opensquad.
 type: script
-version: "1.0.0"
+version: "2.0.0"
 script:
   path: scripts/publish.js
   runtime: node
-  invoke: "node --env-file=.env {skill_path}/scripts/publish.js --images \"{images}\" --caption \"{caption}\""
+  invoke: "node --env-file=.env {skill_path}/scripts/publish.js"
 env:
   - INSTAGRAM_ACCESS_TOKEN
   - INSTAGRAM_USER_ID
@@ -30,40 +33,156 @@ categories: [social-media, publishing, instagram]
 
 # Instagram Publisher
 
-## When to use
+Skill para publicar posts no Instagram (imagem única ou carrossel) direto do terminal.
 
-Use the Instagram Publisher when you need to publish carousel posts directly to an Instagram Business account. This skill handles the full workflow: uploading images to a temporary public host (imgbb), creating Instagram media containers via the Graph API, and publishing the carousel. It supports 2-10 JPEG images per post.
+Funciona em qualquer contexto:
+- **Standalone** — direto no Claude Code ou cowork, sem precisar de squad
+- **Pipeline** — dentro de squads Opensquad como etapa de publicação
 
-## Instructions
+## Uso Rápido (Standalone)
 
-### Workflow
+### Publicar carrossel (2-10 imagens)
 
-1. List JPEG files in `squads/{squad}/output/images/` sorted by name.
-   If no files found: stop and ask the user to add images before continuing.
-2. Present the image list to the user with AskUserQuestion to confirm order.
-3. Extract the caption from the content draft:
-   - Use the hook slide text + CTA slide text
-   - Max 2200 characters (Instagram limit)
-4. Run the publish script:
-   ```
-   node --env-file=.env squads/{squad}/tools/publish.js \
-     --images "<comma-separated-ordered-paths>" \
-     --caption "<caption>"
-   ```
-   Add `--dry-run` to test the full flow without actually publishing.
-5. On success: save the post URL and post ID to the step output file.
-6. On failure: display the error and ask the user how to proceed.
+```bash
+node --env-file=.env skills/instagram-publisher/scripts/publish.js \
+  --dir ./path/to/jpeg/folder \
+  --caption "Sua caption aqui com #hashtags" \
+  --dry-run
+```
 
-### Constraints
+### Publicar imagem única
 
-- Images: JPEG only, 2-10 per carousel
-- Caption: max 2200 characters
-- Requires Instagram Business account (not Personal or Creator)
-- Rate limit: 25 API-published posts per 24 hours
+```bash
+node --env-file=.env skills/instagram-publisher/scripts/publish.js \
+  --images "foto.jpg" \
+  --caption "Sua caption aqui"
+```
 
-### Setup (first-time)
+### Usando arquivo de caption
 
-Copy `.env.example` to `.env` and fill in the three required variables:
+```bash
+node --env-file=.env skills/instagram-publisher/scripts/publish.js \
+  --dir ./slides \
+  --caption-file caption.txt
+```
+
+## Parâmetros
+
+| Parâmetro | Descrição |
+|-----------|-----------|
+| `--images "a.jpg,b.jpg"` | Lista de imagens separadas por vírgula |
+| `--dir ./pasta` | Pasta com imagens (JPG/PNG, ordem alfabética) |
+| `--caption "texto"` | Caption do post (inline) |
+| `--caption-file arquivo.txt` | Caption do post (de arquivo) |
+| `--dry-run` | Testa tudo sem publicar de verdade |
+
+**Regras:**
+- Use `--images` OU `--dir` (não ambos)
+- Use `--caption` OU `--caption-file` (não ambos)
+- 1 imagem = post único; 2-10 imagens = carrossel
+- Caption máx 2200 caracteres
+- Recomendado: 5 hashtags
+
+## Instruções para o Agente
+
+Quando o usuário pedir para publicar no Instagram, siga este fluxo:
+
+### 1. Localizar Imagens
+
+Pergunte ou identifique onde estão as imagens:
+- Se dentro de um squad: `squads/{nome}/output/slides/rendered/jpeg/`
+- Se standalone: pergunte o caminho ou use o diretório atual
+
+Verifique:
+- Formato: JPEG ou PNG
+- Quantidade: 1-10 imagens
+- Tamanho: cada uma menor que 8MB
+
+### 2. Obter Caption
+
+Se o usuário não forneceu a caption:
+- Procure por `carousel-draft.md` ou `caption.txt` no diretório de output
+- Ou peça ao usuário
+
+Verifique:
+- Máximo 2200 caracteres
+- Hook nos primeiros 125 caracteres
+- Hashtags presentes
+
+### 3. Apresentar Preview
+
+Antes de qualquer ação, mostre ao usuário:
+
+```
+📱 PREVIEW
+
+Tipo: Carrossel (N slides) / Imagem única
+Imagens: lista dos arquivos
+Caption (X/2200 chars):
+"[primeiros 200 chars]..."
+Hashtags: #tag1 #tag2 ...
+
+Publicar? (dry-run primeiro / publicar direto / cancelar)
+```
+
+### 4. Dry-Run (Recomendado)
+
+Execute com `--dry-run` primeiro:
+
+```bash
+node --env-file=.env skills/instagram-publisher/scripts/publish.js \
+  --dir "{caminho}" \
+  --caption "{caption}" \
+  --dry-run
+```
+
+Se passar: pergunte se quer publicar de verdade.
+Se falhar: mostre o erro e sugira correção.
+
+### 5. Publicar
+
+Somente após confirmação explícita do usuário, execute sem `--dry-run`:
+
+```bash
+node --env-file=.env skills/instagram-publisher/scripts/publish.js \
+  --dir "{caminho}" \
+  --caption "{caption}"
+```
+
+### 6. Reportar Resultado
+
+No sucesso, mostre:
+- Post URL (permalink)
+- Post ID
+- Tipo (carrossel / imagem única)
+- Número de slides
+
+No erro, mostre:
+- Mensagem de erro
+- Sugestão de correção
+
+## Validações
+
+| Check | Regra |
+|-------|-------|
+| Formato | JPEG ou PNG |
+| Quantidade | 1-10 imagens |
+| Tamanho arquivo | < 8MB cada |
+| Caption | < 2200 caracteres |
+| Hashtags | Máximo 30 (recomendado 5) |
+| Env vars | IMGBB_API_KEY, INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_USER_ID |
+
+## Constraints
+
+- **Nunca publique sem confirmação explícita do usuário**
+- **Sempre faça dry-run antes da publicação real** (a menos que o usuário peça para pular)
+- Conta Instagram Business obrigatória (não funciona com Personal ou Creator)
+- Rate limit: 25 posts publicados via API por 24 horas
+- Imagens no imgbb expiram — não reutilize URLs antigas
+
+## Setup (primeira vez)
+
+Configure as 3 variáveis no arquivo `.env`:
 
 ```
 IMGBB_API_KEY=
@@ -71,14 +190,14 @@ INSTAGRAM_ACCESS_TOKEN=
 INSTAGRAM_USER_ID=
 ```
 
-#### IMGBB_API_KEY
+### IMGBB_API_KEY
 
 1. Acesse [https://api.imgbb.com/](https://api.imgbb.com/)
 2. Clique em **"Get API Key"** e crie uma conta gratuita (sem cartão de crédito)
 3. Após o login, sua chave aparece na própria página inicial
 4. Copie e cole em `.env`
 
-#### INSTAGRAM_ACCESS_TOKEN
+### INSTAGRAM_ACCESS_TOKEN
 
 Pré-requisito: conta Instagram Business conectada a uma Página do Facebook, e um app criado em [developers.facebook.com](https://developers.facebook.com/) (tipo: **Empresa**).
 
@@ -105,7 +224,7 @@ Pré-requisito: conta Instagram Business conectada a uma Página do Facebook, e 
 
 > O token expira em 60 dias. Repita o processo para renovar.
 
-#### INSTAGRAM_USER_ID
+### INSTAGRAM_USER_ID
 
 1. No Graph API Explorer (com o token acima), faça GET em:
    ```
@@ -118,9 +237,10 @@ Pré-requisito: conta Instagram Business conectada a uma Página do Facebook, e 
    ```
 4. Copie o `id` dentro de `instagram_business_account` — esse é o seu User ID
 
-## Available operations
+## Operações Disponíveis
 
-- **Publish Carousel** -- Upload images and publish a carousel post to Instagram
-- **Dry Run** -- Test the full publishing flow without actually posting (use `--dry-run` flag)
-- **Image Upload** -- Upload local JPEG images to imgbb for temporary public hosting
-- **Status Check** -- Monitor media container processing status before publishing
+- **Publish Carousel** — Upload de 2-10 imagens e publicação como carrossel
+- **Publish Single** — Upload de 1 imagem e publicação como post único
+- **Dry Run** — Testa o fluxo completo sem publicar (use `--dry-run`)
+- **Image Upload** — Upload de imagens locais para o imgbb
+- **Status Check** — Monitora o status dos containers antes de publicar
