@@ -33,7 +33,7 @@ Fonte: FDA; AAO; BrightFocus
 
 ### Slide 06
 **Fato 5: Um teste de 30 segundos detecta mudanças**
-A grelha de Amsler é uma ferramenta simples — um quadrado com linhas retas e um ponto no centro. Você olha para o ponto e observa se as linhas parecem tortas, onduladas ou com falhas. Se parecerem, pode ser sinal de que a DMRI está progredindo. É gratuito, faz em casa, e pode salvar sua visão central.
+A grade de Amsler é uma ferramenta simples — um quadrado com linhas retas e um ponto no centro. Você olha para o ponto e observa se as linhas parecem tortas, onduladas ou com falhas. Se parecerem, pode ser sinal de que a DMRI está progredindo. É gratuito, faz em casa, e pode salvar sua visão central.
 Fonte: AAO PPP 2024; Prevent Blindness
 
 ### Slide 07
@@ -48,7 +48,7 @@ Fonte: SBRV; COI; CBO
 
 ### Slide 09 (CTA)
 **Seus olhos merecem atenção**
-Salve este carrossel para consultar depois. Mande para alguém da sua família que tem mais de 60 anos. E se faz tempo que você não fez um exame oftalmológico completo, esse é o seu sinal. Agende sua avaliação. CEDOA — 30 anos cuidando da sua visão em Manaus.
+Agende sua consulta para avaliação. Mande para alguém da sua família que tem mais de 60 anos. Se faz tempo que você não fez um exame oftalmológico completo, esse é o seu sinal. Dr. Thiago Russo — CEDOA.
 
 === CAPTION ===
 O que é DMRI seca? 90% das pessoas não sabem — e ela é a forma mais comum de degeneração macular.
