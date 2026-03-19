@@ -1,0 +1,131 @@
+# Strategy Brief — DMRI Seca
+meta:
+  tema: "DMRI Seca — Degeneração Macular Relacionada à Idade (forma seca)"
+  formato: "carrossel-instagram"
+  persona: "R1-adaptado"
+  persona_nome: "Pânico do diagnóstico — paciente ou familiar que acabou de descobrir DMRI seca"
+  data: "19/03/2026"
+  estrategista: "🧭 Estrategista"
+
+justificativa_persona: >
+  A persona R1 original é "Pânico do descolamento de retina", mas o mesmo perfil
+  psicológico se aplica perfeitamente ao paciente que recebeu diagnóstico de DMRI seca:
+  ansioso, googla sintomas, encontra informações alarmistas sobre cegueira e chega
+  ao consultório (ou ao Instagram) com medo excessivo. O gancho mais forte do research
+  é justamente desmistificar esse medo — "vou ficar cego?" — com dados reais e
+  linguagem tranquilizadora. Perfil: 55-70 anos, ou filho/filha de paciente diagnosticado.
+
+gancho_principal: >
+  "Recebi o diagnóstico de DMRI seca. Vou ficar cego?"
+
+estrutura_narrativa:
+  slide_1_capa:
+    papel: "Gancho visual — parar o scroll com a pergunta que o paciente tem medo de fazer"
+    titulo: "DMRI seca: vou ficar cego?"
+    descricao: >
+      Fundo azul-marinho escuro com texto branco em destaque. Tipografia grande e bold.
+      Imagem de fundo: simulação de visão com mancha central escura (visão de quem tem DMRI)
+      — impacto visual imediato que gera identificação.
+    fundo: "azul-marinho com overlay"
+
+  slide_2:
+    papel: "Contexto — o que é a DMRI seca de forma simples"
+    manchete: "A DMRI seca é a forma mais comum da doença"
+    texto_suporte: >
+      Ela representa 80 a 90% de todos os casos de DMRI. Começa com o acúmulo de drusas
+      — depósitos sob a retina que comprometem as células que captam luz. A progressão
+      é lenta, diferente da forma úmida. Mas isso não significa que pode ser ignorada.
+    palavras_destaque: ["80 a 90%", "drusas", "progressão lenta"]
+    fundo: "claro"
+
+  slide_3:
+    papel: "Clareza — desmistificar a cegueira total"
+    manchete: "DMRI seca não causa cegueira total"
+    texto_suporte: >
+      A doença afeta a visão central — a que usamos para ler, reconhecer rostos e
+      dirigir. Mas a visão periférica geralmente é preservada. Isso significa que
+      a maioria dos pacientes mantém independência para atividades do dia a dia,
+      especialmente com acompanhamento adequado.
+    palavras_destaque: ["visão central", "visão periférica é preservada", "independência"]
+    fundo: "escuro"
+
+  slide_4:
+    papel: "Impacto no dia a dia — o que o paciente realmente sente"
+    manchete: "O que muda na vida de quem tem DMRI seca"
+    texto_suporte: >
+      Dificuldade para ler letras pequenas. Necessidade de mais luz. Distorção de
+      linhas retas. Mancha escura no centro do campo visual em estágios avançados.
+      Esses sintomas aparecem gradualmente — e monitorar essa progressão faz
+      toda a diferença no tratamento.
+    palavras_destaque: ["monitorar essa progressão", "faz toda a diferença"]
+    fundo: "acento dourado"
+
+  slide_5:
+    papel: "Decisão médica — o que fazer agora"
+    manchete: "O que você pode fazer hoje para proteger sua visão"
+    texto_suporte: >
+      Teste de Amsler em casa: olhe para a grade com um olho por vez. Linhas tortas
+      ou manchas escuras? Consulte um oftalmologista. Suplementos AREDS2 podem
+      reduzir o risco de progressão em até 30% em 5 anos — mas precisam de
+      indicação médica. Parar de fumar é a medida preventiva mais eficaz.
+    palavras_destaque: ["Teste de Amsler", "30% em 5 anos", "parar de fumar"]
+    fundo: "claro"
+
+  slide_6:
+    papel: "Segurança / Ética — frase-âncora obrigatória"
+    manchete: "Diagnóstico precoce muda o prognóstico"
+    texto_suporte: >
+      Na minha prática clínica, vejo que pacientes que chegam cedo — antes dos
+      sintomas avançarem — têm muito mais opções de manejo. Cada caso é único.
+      A avaliação oftalmológica é essencial para definir o melhor acompanhamento
+      para você. Este conteúdo é educativo e não substitui consulta médica.
+    palavras_destaque: ["Cada caso é único", "avaliação oftalmológica é essencial"]
+    fundo: "escuro"
+
+  slide_7_cta:
+    papel: "CTA — ação específica e valiosa"
+    acao: "Salvar o post + comentar com a palavra AMSLER para receber o guia do teste em casa"
+    texto: >
+      Salva esse post para consultar depois. Se você ou alguém da família tem DMRI seca,
+      comenta AMSLER aqui embaixo — vou te enviar o guia do teste de Amsler em casa.
+    fundo: "acento dourado"
+
+tom_e_voz:
+  adjetivos: ["tranquilizador", "direto", "empático", "educativo"]
+  vocabulario_usar:
+    - "Na minha prática clínica..."
+    - "Cada caso é único."
+    - "A avaliação oftalmológica é essencial."
+    - "Vou te explicar de forma simples..."
+    - "Isso é mais comum do que parece."
+  vocabulario_evitar:
+    - "Cegueira" (sem contexto tranquilizador)
+    - "Não tem cura" (substituir por "não tem reversão ainda, mas tem manejo")
+    - "Urgência" / "Corra para o consultório"
+    - Termos técnicos sem explicação (epitélio pigmentar, fotorreceptores)
+  nivel_tecnico: "leigo-intermediário"
+  tom_geral: >
+    Calmo e acolhedor no início (validar o medo), depois direto e prático
+    (dados reais que desmistificam), fechando com empoderamento (o que o
+    paciente pode fazer hoje).
+
+legenda_instagram:
+  gancho_abertura: >
+    "Recebi o diagnóstico de DMRI seca. Vou ficar cego?" — essa é a pergunta
+    que mais ouço no consultório.
+  tom_geral: "Tranquilizador, educativo, com dados reais. Primeira pessoa do médico."
+  cta_final: "Você ou alguém da família tem DMRI seca? Comenta aqui — quero saber sua dúvida."
+  hashtags_sugeridas:
+    - "#DMRI"
+    - "#degeneracaomacular"
+    - "#retina"
+    - "#drthiagorusso"
+    - "#oftalmologiamanaus"
+    - "#saudedosolhos"
+    - "#oftalmologista"
+    - "#visao"
+    - "#cuidadoscomolhos"
+    - "#medicinapreventiva"
+
+frase_ancora_escolhida: >
+  "Cada caso é único. A avaliação oftalmológica é essencial."

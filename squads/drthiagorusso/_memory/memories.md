@@ -33,7 +33,10 @@
 - **R1** — Paciente com pânico de descolamento de retina (35-55)
 
 ## Histórico de Publicações
-[Será preenchido automaticamente após cada publicação]
+
+| Data | Tema | Persona | Slides | CTA |
+|------|------|---------|--------|-----|
+| 19/03/2026 | DMRI Seca | R1-adaptado (pânico do diagnóstico) | 7 | Comentar AMSLER |
 
 ## Temas Já Abordados
-[Será preenchido automaticamente após cada execução do squad]
+- **DMRI Seca** (19/03/2026) — gancho: "vou ficar cego?", desmistificação, teste de Amsler, AREDS2
