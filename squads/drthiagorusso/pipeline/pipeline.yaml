@@ -1,0 +1,169 @@
+# Pipeline — Dr. Thiago Russo Oftalmologia
+# Squad: drthiagorusso
+# Versão: 1.0.0
+
+pipeline:
+  name: "Instagram Content Pipeline — @drthiagorusso"
+  description: >
+    Pipeline completo para produção e publicação de carrosséis educativos de
+    oftalmologia no Instagram @drthiagorusso. Inclui pesquisa científica,
+    estratégia de conteúdo, copywriting ético, design visual, revisão e
+    publicação automática via Instagram Graph API.
+
+  steps:
+
+    # ─────────────────────────────────────────────────────────────
+    # STEP 1 — PESQUISA
+    # ─────────────────────────────────────────────────────────────
+    - id: research
+      label: "🔬 Pesquisando o tema..."
+      agent: researcher
+      execution: subagent
+      model_tier: fast
+      description: >
+        O Pesquisador coleta evidências científicas, tendências de conteúdo
+        e dúvidas frequentes dos pacientes sobre o tema solicitado.
+      input: "{{topic}}"
+      outputFile: squads/drthiagorusso/output/research-brief.md
+
+    # ─────────────────────────────────────────────────────────────
+    # STEP 2 — ESTRATÉGIA
+    # ─────────────────────────────────────────────────────────────
+    - id: strategy
+      label: "🧭 Definindo estratégia de conteúdo..."
+      agent: strategist
+      execution: inline
+      model_tier: powerful
+      description: >
+        O Estrategista analisa o research brief, seleciona a persona adequada,
+        define o gancho principal e estrutura os 7 slides do carrossel.
+      input: squads/drthiagorusso/output/research-brief.md
+      outputFile: squads/drthiagorusso/output/strategy-brief.yaml
+
+    # ─────────────────────────────────────────────────────────────
+    # CHECKPOINT — APROVAR ESTRATÉGIA
+    # ─────────────────────────────────────────────────────────────
+    - id: checkpoint-strategy
+      type: checkpoint
+      label: "✅ Aprovar estratégia"
+      message: |
+        O Estrategista definiu a abordagem para o carrossel.
+
+        📋 Revise o arquivo: squads/drthiagorusso/output/strategy-brief.yaml
+
+        Verifique:
+        - Persona selecionada está correta?
+        - Gancho principal é forte o suficiente?
+        - Estrutura dos 7 slides faz sentido?
+        - Tom e vocabulário estão alinhados com sua voz?
+
+        Responda **APROVAR** para continuar ou faça ajustes antes de prosseguir.
+
+    # ─────────────────────────────────────────────────────────────
+    # STEP 3 — COPYWRITING
+    # ─────────────────────────────────────────────────────────────
+    - id: copywriting
+      label: "✍️ Redigindo copy do carrossel..."
+      agent: copywriter
+      execution: inline
+      model_tier: powerful
+      format: instagram-feed
+      description: >
+        O Copywriter redige o texto completo de todos os 7 slides, a legenda
+        do Instagram e as hashtags, seguindo a estratégia aprovada e as
+        diretrizes éticas do CFM/CBO.
+      input: squads/drthiagorusso/output/strategy-brief.yaml
+      context:
+        - squads/drthiagorusso/pipeline/data/tone-of-voice.md
+        - squads/drthiagorusso/_memory/memories.md
+      outputFile: squads/drthiagorusso/output/copy-draft.md
+
+    # ─────────────────────────────────────────────────────────────
+    # CHECKPOINT — APROVAR COPY
+    # ─────────────────────────────────────────────────────────────
+    - id: checkpoint-copy
+      type: checkpoint
+      label: "✅ Aprovar copy"
+      message: |
+        O Copywriter finalizou o texto do carrossel.
+
+        📋 Revise o arquivo: squads/drthiagorusso/output/copy-draft.md
+
+        Verifique:
+        - Título da capa para o scroll?
+        - Cada slide tem headline + texto suporte?
+        - Frase-âncora obrigatória está no slide 6?
+        - Legenda com gancho nos primeiros 125 chars?
+        - CTA específico e valioso?
+        - Nenhuma violação ética?
+
+        Responda **APROVAR** para gerar as imagens ou solicite ajustes.
+
+    # ─────────────────────────────────────────────────────────────
+    # STEP 4 — DESIGN
+    # ─────────────────────────────────────────────────────────────
+    - id: design
+      label: "🎨 Gerando imagens do carrossel..."
+      agent: designer
+      execution: subagent
+      model_tier: powerful
+      description: >
+        O Designer cria as 7 imagens JPEG do carrossel (1080×1350px) seguindo
+        a identidade visual da marca: paleta azul-marinho/dourado, tipografia
+        Montserrat/Lato, alternância de fundos.
+      input: squads/drthiagorusso/output/copy-draft.md
+      outputFile: squads/drthiagorusso/output/images/
+
+    # ─────────────────────────────────────────────────────────────
+    # STEP 5 — REVISÃO
+    # ─────────────────────────────────────────────────────────────
+    - id: review
+      label: "🔍 Revisando conteúdo e ética..."
+      agent: reviewer
+      execution: inline
+      model_tier: powerful
+      description: >
+        O Revisor verifica copy e imagens contra os checklists de ética médica
+        (CFM/CBO), qualidade textual e identidade visual. Emite parecer
+        APROVADO ou REPROVADO com lista de correções.
+      input:
+        - squads/drthiagorusso/output/copy-draft.md
+        - squads/drthiagorusso/output/images/
+      outputFile: squads/drthiagorusso/output/review-report.md
+
+    # ─────────────────────────────────────────────────────────────
+    # CHECKPOINT — APROVAR PUBLICAÇÃO
+    # ─────────────────────────────────────────────────────────────
+    - id: checkpoint-publish
+      type: checkpoint
+      label: "✅ Confirmar publicação no Instagram"
+      message: |
+        O Revisor emitiu o parecer final.
+
+        📋 Revise: squads/drthiagorusso/output/review-report.md
+        🖼️ Imagens: squads/drthiagorusso/output/images/
+
+        Esta é a última confirmação antes da publicação no @drthiagorusso.
+
+        ⚠️ Após confirmar, o carrossel será publicado IMEDIATAMENTE no Instagram.
+
+        Responda **PUBLICAR** para publicar agora ou **CANCELAR** para encerrar sem publicar.
+
+    # ─────────────────────────────────────────────────────────────
+    # STEP 6 — PUBLICAÇÃO
+    # ─────────────────────────────────────────────────────────────
+    - id: publish
+      label: "📲 Publicando no Instagram @drthiagorusso..."
+      agent: publisher
+      execution: inline
+      model_tier: fast
+      skills:
+        - instagram-publisher
+      description: >
+        O Publisher executa a publicação do carrossel no Instagram @drthiagorusso
+        via Instagram Graph API. Faz upload das imagens para o imgbb, cria os
+        containers de mídia e publica o carrossel. Salva o permalink e post ID.
+      input:
+        - squads/drthiagorusso/output/images/
+        - squads/drthiagorusso/output/copy-draft.md
+      outputFile: squads/drthiagorusso/output/publish-result.md

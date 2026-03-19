@@ -1,0 +1,82 @@
+squad:
+  code: drthiagorusso
+  name: Dr. Thiago Russo — Instagram Oftalmologia
+  description: >
+    Squad especializado em produção de conteúdo educativo de oftalmologia para o
+    Instagram @drthiagorusso. Pesquisa tendências, define estratégia, redige copy
+    ética e persuasiva, gera imagens no padrão da marca e publica automaticamente
+    via Instagram Graph API.
+  version: "1.0.0"
+  language: pt-BR
+
+skills:
+  - instagram-publisher
+
+pipeline:
+  steps:
+    - id: research
+      agent: researcher
+      execution: subagent
+      model_tier: fast
+      input: "{{topic}}"
+      outputFile: squads/drthiagorusso/output/research-brief.md
+
+    - id: strategy
+      agent: strategist
+      execution: inline
+      model_tier: powerful
+      input: squads/drthiagorusso/output/research-brief.md
+      outputFile: squads/drthiagorusso/output/strategy-brief.yaml
+
+    - id: checkpoint-strategy
+      type: checkpoint
+      label: "✅ Aprovar estratégia antes de redigir"
+      message: >
+        O Estrategista definiu a abordagem. Revise e aprove para o Copywriter iniciar.
+
+    - id: copywriting
+      agent: copywriter
+      execution: inline
+      model_tier: powerful
+      format: instagram-feed
+      input: squads/drthiagorusso/output/strategy-brief.yaml
+      outputFile: squads/drthiagorusso/output/copy-draft.md
+
+    - id: checkpoint-copy
+      type: checkpoint
+      label: "✅ Aprovar copy antes de gerar imagens"
+      message: >
+        O Copywriter finalizou o texto e a legenda. Revise e aprove para o Designer criar as imagens.
+
+    - id: design
+      agent: designer
+      execution: subagent
+      model_tier: powerful
+      input: squads/drthiagorusso/output/copy-draft.md
+      outputFile: squads/drthiagorusso/output/images/
+
+    - id: review
+      agent: reviewer
+      execution: inline
+      model_tier: powerful
+      input:
+        - squads/drthiagorusso/output/copy-draft.md
+        - squads/drthiagorusso/output/images/
+      outputFile: squads/drthiagorusso/output/review-report.md
+
+    - id: checkpoint-publish
+      type: checkpoint
+      label: "✅ Aprovar publicação no Instagram"
+      message: >
+        O Revisor aprovou o conteúdo. Confirme para publicar no @drthiagorusso.
+
+    - id: publish
+      agent: publisher
+      execution: inline
+      model_tier: fast
+      skills:
+        - instagram-publisher
+      input:
+        - squads/drthiagorusso/output/images/
+        - squads/drthiagorusso/output/copy-draft.md
+      outputFile: squads/drthiagorusso/output/publish-result.md
